@@ -104,6 +104,42 @@ OptionsView::OptionsView():
 	tempLabel->Appearance.VerticalAlign = ui::Appearance::AlignMiddle;
 	scrollPanel->AddChild(tempLabel);
 
+	currentY+=16;
+	timeDilation = new ui::Checkbox(ui::Point(8, currentY), ui::Point(1, 16), "Time Dilation \bgIntroduced in Cyens Toy 2.0.0", "");
+	autowidth(timeDilation);
+	timeDilation->SetActionCallback({ [this] { c->SetTimeDilation(timeDilation->GetChecked()); } });
+	scrollPanel->AddChild(timeDilation);
+	currentY += 14;
+	tempLabel = new ui::Label(ui::Point(24, currentY), ui::Point(1, 16), "\bgSlow time in the presence of gravity (unrealistic)");
+	autowidth(tempLabel);
+	tempLabel->Appearance.HorizontalAlign = ui::Appearance::AlignLeft;
+	tempLabel->Appearance.VerticalAlign = ui::Appearance::AlignMiddle;
+	scrollPanel->AddChild(tempLabel);
+
+	currentY += 16;
+	compressibleGases = new ui::Checkbox(ui::Point(8, currentY), ui::Point(1, 16), "Compressible Gases \bgIntroduced in Cyens Toy 2.0.4", "");
+	autowidth(compressibleGases);
+	compressibleGases->SetActionCallback({ [this] { c->SetCompressibleGases(compressibleGases->GetChecked()); } });
+	scrollPanel->AddChild(compressibleGases);
+	currentY += 14;
+	tempLabel = new ui::Label(ui::Point(24, currentY), ui::Point(1, 16), "\bgCompress gases up to 5x");
+	autowidth(tempLabel);
+	tempLabel->Appearance.HorizontalAlign = ui::Appearance::AlignLeft;
+	tempLabel->Appearance.VerticalAlign = ui::Appearance::AlignMiddle;
+	scrollPanel->AddChild(tempLabel);
+
+	currentY += 16;
+	drawQuantumFields = new ui::Checkbox(ui::Point(8, currentY), ui::Point(1, 16), "Draw Quantum Fields \bgIntroduced in Cyens Toy 3.2", "");
+	autowidth(drawQuantumFields);
+	drawQuantumFields->SetActionCallback({ [this] { c->SetDrawQuantumFields(drawQuantumFields->GetChecked()); } });
+	scrollPanel->AddChild(drawQuantumFields);
+	currentY += 14;
+	tempLabel = new ui::Label(ui::Point(24, currentY), ui::Point(1, 16), "\bgDraws the fields of the natural forces except gravity");
+	autowidth(tempLabel);
+	tempLabel->Appearance.HorizontalAlign = ui::Appearance::AlignLeft;
+	tempLabel->Appearance.VerticalAlign = ui::Appearance::AlignMiddle;
+	scrollPanel->AddChild(tempLabel);
+
 	currentY+=19;
 	airMode = new ui::DropDown(ui::Point(Size.X-95, currentY), ui::Point(80, 16));
 	scrollPanel->AddChild(airMode);
@@ -143,6 +179,7 @@ OptionsView::OptionsView():
 	gravityMode->AddOption(std::pair<String, int>("Vertical", 0));
 	gravityMode->AddOption(std::pair<String, int>("Off", 1));
 	gravityMode->AddOption(std::pair<String, int>("Radial", 2));
+	gravityMode->AddOption(std::pair<String, int>("Local", 3));
 	gravityMode->SetActionCallback({ [this] { c->SetGravityMode(gravityMode->GetOption().second); } });
 
 	tempLabel = new ui::Label(ui::Point(8, currentY), ui::Point(Size.X-96, 16), "Gravity Simulation Mode");
@@ -420,6 +457,9 @@ void OptionsView::NotifySettingsChanged(OptionsModel * sender)
 	ambientHeatSimulation->SetChecked(sender->GetAmbientHeatSimulation());
 	newtonianGravity->SetChecked(sender->GetNewtonianGravity());
 	waterEqualisation->SetChecked(sender->GetWaterEqualisation());
+	timeDilation->SetChecked(sender->GetTimeDilation());
+	compressibleGases->SetChecked(sender->GetCompressibleGases());
+	drawQuantumFields->SetChecked(sender->GetDrawQuantumFields());
 	airMode->SetOption(sender->GetAirMode());
 	// Initialize air temp and preview only when the options menu is opened, and not when user is actively editing the textbox
 	if (!initializedAirTempPreview)

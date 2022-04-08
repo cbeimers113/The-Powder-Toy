@@ -9,7 +9,7 @@ void Element::Element_DCEL()
 	Name = "DCEL";
 	Colour = PIXPACK(0x99CC00);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

@@ -11,12 +11,13 @@
 #include "gui/interface/Engine.h"
 #include "gui/game/GameModel.h"
 
-OptionsModel::OptionsModel(GameModel * gModel_) {
+OptionsModel::OptionsModel(GameModel *gModel_)
+{
 	gModel = gModel_;
 	sim = gModel->GetSimulation();
 }
 
-void OptionsModel::AddObserver(OptionsView* view)
+void OptionsModel::AddObserver(OptionsView *view)
 {
 	observers.push_back(view);
 	view->NotifySettingsChanged(this);
@@ -24,23 +25,23 @@ void OptionsModel::AddObserver(OptionsView* view)
 
 bool OptionsModel::GetHeatSimulation()
 {
-	return sim->legacy_enable?false:true;
+	return sim->legacy_enable ? false : true;
 }
 
 void OptionsModel::SetHeatSimulation(bool state)
 {
-	sim->legacy_enable = state?0:1;
+	sim->legacy_enable = state ? 0 : 1;
 	notifySettingsChanged();
 }
 
 bool OptionsModel::GetAmbientHeatSimulation()
 {
-	return sim->aheat_enable?true:false;
+	return sim->aheat_enable ? true : false;
 }
 
 void OptionsModel::SetAmbientHeatSimulation(bool state)
 {
-	sim->aheat_enable = state?1:0;
+	sim->aheat_enable = state ? 1 : 0;
 	notifySettingsChanged();
 }
 
@@ -51,7 +52,7 @@ bool OptionsModel::GetNewtonianGravity()
 
 void OptionsModel::SetNewtonianGravity(bool state)
 {
-	if(state)
+	if (state)
 		sim->grav->start_grav_async();
 	else
 		sim->grav->stop_grav_async();
@@ -60,12 +61,45 @@ void OptionsModel::SetNewtonianGravity(bool state)
 
 bool OptionsModel::GetWaterEqualisation()
 {
-	return sim->water_equal_test?true:false;
+	return sim->water_equal_test ? true : false;
 }
 
 void OptionsModel::SetWaterEqualisation(bool state)
 {
-	sim->water_equal_test = state?1:0;
+	sim->water_equal_test = state ? 1 : 0;
+	notifySettingsChanged();
+}
+
+bool OptionsModel::GetTimeDilation()
+{
+	return sim->do_time_dilation;
+}
+
+void OptionsModel::SetTimeDilation(bool state)
+{
+	sim->do_time_dilation = !sim->do_time_dilation;
+	notifySettingsChanged();
+}
+
+bool OptionsModel::GetCompressibleGases()
+{
+	return sim->do_compressible_gases;
+}
+
+void OptionsModel::SetCompressibleGases(bool state)
+{
+	sim->do_compressible_gases = state;
+	notifySettingsChanged();
+}
+
+bool OptionsModel::GetDrawQuantumFields()
+{
+	return sim->draw_quantum_fields;
+}
+
+void OptionsModel::SetDrawQuantumFields(bool state)
+{
+	sim->draw_quantum_fields = state;
 	notifySettingsChanged();
 }
 
@@ -260,6 +294,6 @@ void OptionsModel::notifySettingsChanged()
 	}
 }
 
-OptionsModel::~OptionsModel() {
+OptionsModel::~OptionsModel()
+{
 }
-

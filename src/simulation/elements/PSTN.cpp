@@ -14,7 +14,7 @@ void Element::Element_PSTN()
 	Name = "PSTN";
 	Colour = PIXPACK(0xAA9999);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

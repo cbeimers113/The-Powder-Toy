@@ -24,6 +24,12 @@ public:
 	void SetNewtonianGravity(bool state);
 	bool GetWaterEqualisation();
 	void SetWaterEqualisation(bool state);
+	bool GetTimeDilation();
+	void SetTimeDilation(bool state);
+	bool GetCompressibleGases();
+	void SetCompressibleGases(bool state);
+	bool GetDrawQuantumFields();
+	void SetDrawQuantumFields(bool state);
 	bool GetShowAvatars();
 	void SetShowAvatars(bool state);
 	int GetAirMode();

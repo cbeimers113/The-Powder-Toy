@@ -17,6 +17,12 @@ struct Particle
 	int tmp;
 	int tmp2;
 	unsigned int dcolour;
+
+	// Additional properties
+	int time_dilation_timer;
+	int gas_compression;
+	float electronegativity;
+	
 	/** Returns a list of properties, their type and offset within the structure that can be changed
 	 by higher-level processes referring to them by name such as Lua or the property tool **/
 	static std::vector<StructProperty> const &GetProperties();
