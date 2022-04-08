@@ -8,7 +8,7 @@ void Element::Element_VSNS()
 	Name = "VSNS";
 	Colour = PIXPACK(0x7C9C00);
 	MenuVisible = 1;
-	MenuSection = SC_SENSOR;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

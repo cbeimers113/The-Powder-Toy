@@ -37,6 +37,21 @@ void OptionsController::SetWaterEqualisation(bool state)
 	model->SetWaterEqualisation(state);
 }
 
+void OptionsController::SetTimeDilation(bool state)
+{
+	model->SetTimeDilation(state);
+}
+
+void OptionsController::SetCompressibleGases(bool state)
+{
+	model->SetCompressibleGases(state);
+}
+
+void OptionsController::SetDrawQuantumFields(bool state)
+{
+	model->SetDrawQuantumFields(state);
+}
+
 void OptionsController::SetGravityMode(int gravityMode)
 {
 	model->SetGravityMode(gravityMode);

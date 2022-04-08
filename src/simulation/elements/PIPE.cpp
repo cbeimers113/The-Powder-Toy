@@ -14,7 +14,7 @@ void Element::Element_PIPE()
 	Name = "PIPE";
 	Colour = PIXPACK(0x444444);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

@@ -22,6 +22,9 @@ class OptionsView: public ui::Window
 	ui::Checkbox * ambientHeatSimulation;
 	ui::Checkbox * newtonianGravity;
 	ui::Checkbox * waterEqualisation;
+	ui::Checkbox * compressibleGases;
+	ui::Checkbox * timeDilation;
+	ui::Checkbox * drawQuantumFields;
 	ui::DropDown * airMode;
 	ui::Textbox * ambientAirTemp;
 	ui::Button * ambientAirTempPreview;

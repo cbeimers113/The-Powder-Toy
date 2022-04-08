@@ -9,17 +9,21 @@ class OptionsModel;
 class OptionsView;
 class OptionsController
 {
-	GameModel * gModel;
-	OptionsView * view;
-	OptionsModel * model;
-	std::function<void ()> onDone;
+	GameModel *gModel;
+	OptionsView *view;
+	OptionsModel *model;
+	std::function<void()> onDone;
+
 public:
 	bool HasExited;
-	OptionsController(GameModel * gModel_, std::function<void ()> onDone = nullptr);
+	OptionsController(GameModel *gModel_, std::function<void()> onDone = nullptr);
 	void SetHeatSimulation(bool state);
 	void SetAmbientHeatSimulation(bool state);
 	void SetNewtonianGravity(bool state);
 	void SetWaterEqualisation(bool state);
+	void SetTimeDilation(bool state);
+	void SetCompressibleGases(bool state);
+	void SetDrawQuantumFields(bool state);
 	void SetGravityMode(int gravityMode);
 	void SetAirMode(int airMode);
 	void SetAmbientAirTemperature(float ambientAirTemp);
@@ -36,9 +40,9 @@ public:
 	void SetIncludePressure(bool includePressure);
 	void SetPerfectCircle(bool perfectCircle);
 	void SetMomentumScroll(bool momentumScroll);
-	
+
 	void Exit();
-	OptionsView * GetView();
+	OptionsView *GetView();
 	virtual ~OptionsController();
 };
 

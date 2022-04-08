@@ -19,7 +19,7 @@
 
 #include "Element.h"
 
-#define CHANNELS ((int)(MAX_TEMP-73)/100+2)
+#define CHANNELS ((int)(MAX_TEMP - 73) / 100 + 2)
 
 class Snapshot;
 class SimTool;
@@ -37,13 +37,12 @@ class GameSave;
 class Simulation
 {
 public:
-
-	Gravity * grav;
-	Air * air;
+	Gravity *grav;
+	Air *air;
 
 	std::vector<sign> signs;
 	std::array<Element, PT_NUM> elements;
-	//Element * elements;
+	// Element * elements;
 	std::vector<SimTool> tools;
 	std::vector<unsigned int> platent;
 	std::vector<wall_type> wtypes;
@@ -67,42 +66,42 @@ public:
 	bool etrd_count_valid;
 	int etrd_life0_count;
 	int lightningRecreate;
-	//Stickman
+	// Stickman
 	playerst player;
 	playerst player2;
-	playerst fighters[MAX_FIGHTERS]; //Defined in Stickman.h
-	unsigned char fighcount; //Contains the number of fighters
+	playerst fighters[MAX_FIGHTERS]; // Defined in Stickman.h
+	unsigned char fighcount;		 // Contains the number of fighters
 	bool gravWallChanged;
-	//Portals and Wifi
+	// Portals and Wifi
 	Particle portalp[CHANNELS][8][80];
 	int portal_rx[8];
 	int portal_ry[8];
 	int wireless[CHANNELS][2];
-	//Gol sim
+	// Gol sim
 	int CGOL;
 	int GSPEED;
 	unsigned int gol[YRES][XRES][5];
-	//Air sim
-	float (*vx)[XRES/CELL];
-	float (*vy)[XRES/CELL];
-	float (*pv)[XRES/CELL];
-	float (*hv)[XRES/CELL];
-	//Gravity sim
-	float *gravx;//gravx[(YRES/CELL) * (XRES/CELL)];
-	float *gravy;//gravy[(YRES/CELL) * (XRES/CELL)];
-	float *gravp;//gravp[(YRES/CELL) * (XRES/CELL)];
-	float *gravmap;//gravmap[(YRES/CELL) * (XRES/CELL)];
-	//Walls
-	unsigned char bmap[YRES/CELL][XRES/CELL];
-	unsigned char emap[YRES/CELL][XRES/CELL];
-	float fvx[YRES/CELL][XRES/CELL];
-	float fvy[YRES/CELL][XRES/CELL];
-	//Particles
+	// Air sim
+	float (*vx)[XRES / CELL];
+	float (*vy)[XRES / CELL];
+	float (*pv)[XRES / CELL];
+	float (*hv)[XRES / CELL];
+	// Gravity sim
+	float *gravx;	// gravx[(YRES/CELL) * (XRES/CELL)];
+	float *gravy;	// gravy[(YRES/CELL) * (XRES/CELL)];
+	float *gravp;	// gravp[(YRES/CELL) * (XRES/CELL)];
+	float *gravmap; // gravmap[(YRES/CELL) * (XRES/CELL)];
+	// Walls
+	unsigned char bmap[YRES / CELL][XRES / CELL];
+	unsigned char emap[YRES / CELL][XRES / CELL];
+	float fvx[YRES / CELL][XRES / CELL];
+	float fvy[YRES / CELL][XRES / CELL];
+	// Particles
 	Particle parts[NPART];
 	int pmap[YRES][XRES];
 	int photons[YRES][XRES];
 	unsigned int pmap_count[YRES][XRES];
-	//Simulation Settings
+	// Simulation Settings
 	int edgeMode;
 	int gravityMode;
 	int legacy_enable;
@@ -114,12 +113,16 @@ public:
 	int sandcolour;
 	int sandcolour_frame;
 	int deco_space;
+	// Cyens Toy Simulation Settings
+	bool do_time_dilation;
+	bool do_compressible_gases;
+	bool draw_quantum_fields;
 
-	int Load(const GameSave * save, bool includePressure);
-	int Load(const GameSave * save, bool includePressure, int x, int y);
-	GameSave * Save(bool includePressure);
-	GameSave * Save(bool includePressure, int x1, int y1, int x2, int y2);
-	void SaveSimOptions(GameSave * gameSave);
+	int Load(const GameSave *save, bool includePressure);
+	int Load(const GameSave *save, bool includePressure, int x, int y);
+	GameSave *Save(bool includePressure);
+	GameSave *Save(bool includePressure, int x1, int y1, int x2, int y2);
+	void SaveSimOptions(GameSave *gameSave);
 	SimulationSample GetSample(int x, int y);
 
 	std::unique_ptr<Snapshot> CreateSnapshot();
@@ -135,10 +138,12 @@ public:
 	int eval_move(int pt, int nx, int ny, unsigned *rr);
 	void init_can_move();
 	bool IsWallBlocking(int x, int y, int type);
-	bool IsElement(int type) const {
+	bool IsElement(int type) const
+	{
 		return (type > 0 && type < PT_NUM && elements[type].Enabled);
 	}
-	bool IsElementOrNone(int type) const {
+	bool IsElementOrNone(int type) const
+	{
 		return (type >= 0 && type < PT_NUM && elements[type].Enabled);
 	}
 	void create_cherenkov_photon(int pp);
@@ -150,8 +155,8 @@ public:
 	int FloodINST(int x, int y);
 	void detach(int i);
 	bool part_change_type(int i, int x, int y, int t);
-	//int InCurrentBrush(int i, int j, int rx, int ry);
-	//int get_brush_flags();
+	// int InCurrentBrush(int i, int j, int rx, int ry);
+	// int get_brush_flags();
 	int create_part(int p, int x, int y, int t, int v = -1);
 	void delete_part(int x, int y);
 	void get_sign_pos(int i, int *x0, int *y0, int *w, int *h);
@@ -172,37 +177,36 @@ public:
 	void SetEdgeMode(int newEdgeMode);
 	void SetDecoSpace(int newDecoSpace);
 
-	//Drawing Deco
+	// Drawing Deco
 	void ApplyDecoration(int x, int y, int colR, int colG, int colB, int colA, int mode);
-	void ApplyDecorationPoint(int x, int y, int colR, int colG, int colB, int colA, int mode, Brush * cBrush = NULL);
-	void ApplyDecorationLine(int x1, int y1, int x2, int y2, int colR, int colG, int colB, int colA, int mode, Brush * cBrush = NULL);
+	void ApplyDecorationPoint(int x, int y, int colR, int colG, int colB, int colA, int mode, Brush *cBrush = NULL);
+	void ApplyDecorationLine(int x1, int y1, int x2, int y2, int colR, int colG, int colB, int colA, int mode, Brush *cBrush = NULL);
 	void ApplyDecorationBox(int x1, int y1, int x2, int y2, int colR, int colG, int colB, int colA, int mode);
 	bool ColorCompare(Renderer *ren, int x, int y, int replaceR, int replaceG, int replaceB);
 	void ApplyDecorationFill(Renderer *ren, int x, int y, int colR, int colG, int colB, int colA, int replaceR, int replaceG, int replaceB);
 
-	//Drawing Tools like HEAT, AIR, and GRAV
+	// Drawing Tools like HEAT, AIR, and GRAV
 	int Tool(int x, int y, int tool, int brushX, int brushY, float strength = 1.0f);
-	int ToolBrush(int x, int y, int tool, Brush * cBrush, float strength = 1.0f);
-	void ToolLine(int x1, int y1, int x2, int y2, int tool, Brush * cBrush, float strength = 1.0f);
+	int ToolBrush(int x, int y, int tool, Brush *cBrush, float strength = 1.0f);
+	void ToolLine(int x1, int y1, int x2, int y2, int tool, Brush *cBrush, float strength = 1.0f);
 	void ToolBox(int x1, int y1, int x2, int y2, int tool, float strength = 1.0f);
 
-	//Drawing Walls
-	int CreateWalls(int x, int y, int rx, int ry, int wall, Brush * cBrush = NULL);
-	void CreateWallLine(int x1, int y1, int x2, int y2, int rx, int ry, int wall, Brush * cBrush = NULL);
+	// Drawing Walls
+	int CreateWalls(int x, int y, int rx, int ry, int wall, Brush *cBrush = NULL);
+	void CreateWallLine(int x1, int y1, int x2, int y2, int rx, int ry, int wall, Brush *cBrush = NULL);
 	void CreateWallBox(int x1, int y1, int x2, int y2, int wall);
 	int FloodWalls(int x, int y, int wall, int bm);
 
-	//Drawing Particles
-	int CreateParts(int positionX, int positionY, int c, Brush * cBrush, int flags = -1);
+	// Drawing Particles
+	int CreateParts(int positionX, int positionY, int c, Brush *cBrush, int flags = -1);
 	int CreateParts(int x, int y, int rx, int ry, int c, int flags = -1);
 	int CreatePartFlags(int x, int y, int c, int flags);
-	void CreateLine(int x1, int y1, int x2, int y2, int c, Brush * cBrush, int flags = -1);
+	void CreateLine(int x1, int y1, int x2, int y2, int c, Brush *cBrush, int flags = -1);
 	void CreateLine(int x1, int y1, int x2, int y2, int c);
 	void CreateBox(int x1, int y1, int x2, int y2, int c, int flags = -1);
 	int FloodParts(int x, int y, int c, int cm, int flags = -1);
 
-
-	void GetGravityField(int x, int y, float particleGrav, float newtonGrav, float & pGravX, float & pGravY);
+	void GetGravityField(int x, int y, float particleGrav, float newtonGrav, float &pGravX, float &pGravY);
 
 	int GetParticleType(ByteString type);
 
@@ -224,13 +228,12 @@ public:
 	String ElementResolve(int type, int ctype) const;
 	String BasicParticleInfo(Particle const &sample_part) const;
 
-
 	struct CustomGOLData
 	{
 		int rule, colour1, colour2;
 		String nameString, ruleString;
 
-		inline bool operator <(const CustomGOLData &other) const
+		inline bool operator<(const CustomGOLData &other) const
 		{
 			return rule < other.rule;
 		}
@@ -245,7 +248,7 @@ public:
 	void SetCustomGOL(std::vector<CustomGOLData> newCustomGol);
 
 private:
-	CoordStack& getCoordStackSingleton();
+	CoordStack &getCoordStackSingleton();
 };
 
 #endif /* SIMULATION_H */

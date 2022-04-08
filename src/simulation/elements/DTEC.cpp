@@ -8,7 +8,7 @@ void Element::Element_DTEC()
 	Name = "DTEC";
 	Colour = PIXPACK(0xFD9D18);
 	MenuVisible = 1;
-	MenuSection = SC_SENSOR;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

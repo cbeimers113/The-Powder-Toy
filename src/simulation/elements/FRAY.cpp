@@ -8,7 +8,7 @@ void Element::Element_FRAY()
 	Name = "FRAY";
 	Colour = PIXPACK(0x00BBFF);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

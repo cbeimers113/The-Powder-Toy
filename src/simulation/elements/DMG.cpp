@@ -9,7 +9,7 @@ void Element::Element_DMG()
 	Name = "DMG";
 	Colour = PIXPACK(0x88FF88);
 	MenuVisible = 1;
-	MenuSection = SC_FORCE;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;

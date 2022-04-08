@@ -9,7 +9,7 @@ void Element::Element_LDTC()
 	Name = "LDTC";
 	Colour = PIXPACK(0x66ff66);
 	MenuVisible = 1;
-	MenuSection = SC_SENSOR;
+	MenuSection = SC_POWERED;
 	Enabled = 1;
 
 	Advection = 0.0f;
