@@ -115,6 +115,9 @@ GameModel::GameModel() : clipboard(NULL),
 		sim->grav->start_grav_async();
 	sim->aheat_enable = Client::Ref().GetPrefInteger("Simulation.AmbientHeat", 0);
 	sim->pretty_powder = Client::Ref().GetPrefInteger("Simulation.PrettyPowder", 0);
+	sim->do_time_dilation = Client::Ref().GetPrefInteger("Simulation.TimeDilation", 0);
+	sim->do_compressible_gases = Client::Ref().GetPrefInteger("Simulation.CompressibleGases", 0);
+	sim->draw_quantum_fields = Client::Ref().GetPrefInteger("Simulation.DrawQuantumFields", 0);
 
 	Favorite::Ref().LoadFavoritesFromPrefs();
 
@@ -175,6 +178,9 @@ GameModel::~GameModel()
 	Client::Ref().SetPref("Simulation.NewtonianGravity", sim->grav->IsEnabled());
 	Client::Ref().SetPref("Simulation.AmbientHeat", sim->aheat_enable);
 	Client::Ref().SetPref("Simulation.PrettyPowder", sim->pretty_powder);
+	Client::Ref().SetPref("Simulation.TimeDilation", sim->do_time_dilation);
+	Client::Ref().SetPref("Simulation.CompressibleGases", sim->do_compressible_gases);
+	Client::Ref().SetPref("Simulation.DrawQuantumFields", sim->draw_quantum_fields);
 
 	Client::Ref().SetPref("Decoration.Red", (int)colour.Red);
 	Client::Ref().SetPref("Decoration.Green", (int)colour.Green);
@@ -1303,12 +1309,12 @@ void GameModel::SetNewtonianGravity(bool newtonainGravity)
 	UpdateQuickOptions();
 }
 
-bool GameModel::GetNewtonianGrvity()
+bool GameModel::GetNewtonianGravity()
 {
 	return sim->grav->IsEnabled();
 }
 
-void GameModel::SetTimeDilationEnable(bool timeDilation)
+void GameModel::SetTimeDilation(bool timeDilation)
 {
 	sim->do_time_dilation = timeDilation;
 
@@ -1320,12 +1326,12 @@ void GameModel::SetTimeDilationEnable(bool timeDilation)
 	UpdateQuickOptions();
 }
 
-bool GameModel::GetTimeDilationEnable()
+bool GameModel::GetTimeDilation()
 {
 	return sim->do_time_dilation;
 }
 
-void GameModel::SetCompressibleGasesEnable(bool compressibleGases)
+void GameModel::SetCompressibleGases(bool compressibleGases)
 {
 	sim->do_compressible_gases = compressibleGases;
 
@@ -1337,12 +1343,12 @@ void GameModel::SetCompressibleGasesEnable(bool compressibleGases)
 	UpdateQuickOptions();
 }
 
-bool GameModel::GetCompressibleGasesEnable()
+bool GameModel::GetCompressibleGases()
 {
 	return sim->do_compressible_gases;
 }
 
-void GameModel::SetDrawQuantumFieldsEnable(bool drawQuantumFields)
+void GameModel::SetDrawQuantumFields(bool drawQuantumFields)
 {
 	sim->draw_quantum_fields = drawQuantumFields;
 
@@ -1354,7 +1360,7 @@ void GameModel::SetDrawQuantumFieldsEnable(bool drawQuantumFields)
 	UpdateQuickOptions();
 }
 
-bool GameModel::GetDrawQuantumFieldsEnable()
+bool GameModel::GetDrawQuantumFields()
 {
 	return sim->draw_quantum_fields;
 }

@@ -35,33 +35,34 @@ class GameSave;
 class LoginController;
 class TagsController;
 class ConsoleController;
-class GameController: public ClientListener
+class GameController : public ClientListener
 {
 private:
 	bool firstTick;
 	int foundSignID;
 
-	PreviewController * activePreview;
-	GameView * gameView;
-	GameModel * gameModel;
-	SearchController * search;
-	RenderController * renderOptions;
-	LoginController * loginWindow;
-	ConsoleController * console;
-	TagsController * tagsWindow;
-	LocalBrowserController * localBrowser;
-	OptionsController * options;
-	CommandInterface * commandInterface;
-	std::vector<DebugInfo*> debugInfo;
+	PreviewController *activePreview;
+	GameView *gameView;
+	GameModel *gameModel;
+	SearchController *search;
+	RenderController *renderOptions;
+	LoginController *loginWindow;
+	ConsoleController *console;
+	TagsController *tagsWindow;
+	LocalBrowserController *localBrowser;
+	OptionsController *options;
+	CommandInterface *commandInterface;
+	std::vector<DebugInfo *> debugInfo;
 	std::unique_ptr<Snapshot> beforeRestore;
 	unsigned int debugFlags;
-	
+
 	void OpenSaveDone();
+
 public:
 	bool HasDone;
 	GameController();
 	~GameController();
-	GameView * GetView();
+	GameView *GetView();
 	int GetSignAt(int x, int y);
 	String GetSignText(int signID);
 	std::pair<int, sign::Type> GetSignSplit(int signID);
@@ -114,20 +115,20 @@ public:
 	bool GetDebugHUD();
 	void SetDebugFlags(unsigned int flags) { debugFlags = flags; }
 	void SetActiveMenu(int menuID);
-	std::vector<Menu*> GetMenuList();
+	std::vector<Menu *> GetMenuList();
 	int GetNumMenus(bool onlyEnabled);
 	void RebuildFavoritesMenu();
-	Tool * GetActiveTool(int selection);
-	void SetActiveTool(int toolSelection, Tool * tool);
+	Tool *GetActiveTool(int selection);
+	void SetActiveTool(int toolSelection, Tool *tool);
 	void SetActiveTool(int toolSelection, ByteString identifier);
-	void SetLastTool(Tool * tool);
+	void SetLastTool(Tool *tool);
 	int GetReplaceModeFlags();
 	void SetReplaceModeFlags(int flags);
 	void SetActiveColourPreset(int preset);
 	void SetColour(ui::Colour colour);
 	void SetToolStrength(float value);
-	void LoadSaveFile(SaveFile * file);
-	void LoadSave(SaveInfo * save);
+	void LoadSaveFile(SaveFile *file);
+	void LoadSave(SaveInfo *save);
 	void OpenSearch(String searchText);
 	void OpenLogin();
 	void OpenProfile();
@@ -170,15 +171,18 @@ public:
 	bool GetAHeatEnable();
 	void ResetAHeat();
 	void ToggleNewtonianGravity();
+	void ToggleCompressibleGases();
+	void ToggleTimeDilation();
+	void ToggleDrawQuantumFields();
 
 	bool LoadClipboard();
 	void LoadStamp(GameSave *stamp);
 
-	void RemoveNotification(Notification * notification);
+	void RemoveNotification(Notification *notification);
 
-	void NotifyUpdateAvailable(Client * sender) override;
-	void NotifyAuthUserChanged(Client * sender) override;
-	void NotifyNewNotification(Client * sender, std::pair<String, ByteString> notification) override;
+	void NotifyUpdateAvailable(Client *sender) override;
+	void NotifyAuthUserChanged(Client *sender) override;
+	void NotifyNewNotification(Client *sender, std::pair<String, ByteString> notification) override;
 	void RunUpdater();
 	bool GetMouseClickRequired();
 
