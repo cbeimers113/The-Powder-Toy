@@ -5,10 +5,8 @@
 
 #include "simulation/Simulation.h"
 
-SandEffectOption::SandEffectOption(GameModel * m):
-QuickOption("P", "Sand effect", m, Toggle)
+SandEffectOption::SandEffectOption(GameModel *m) : QuickOption("P", "Sand effect", m, Toggle)
 {
-
 }
 bool SandEffectOption::GetToggle()
 {
@@ -19,12 +17,8 @@ void SandEffectOption::perform()
 	m->GetSimulation()->pretty_powder = !m->GetSimulation()->pretty_powder;
 }
 
-
-
-DrawGravOption::DrawGravOption(GameModel * m):
-QuickOption("G", "Draw gravity field \bg(ctrl+g)", m, Toggle)
+DrawGravOption::DrawGravOption(GameModel *m) : QuickOption("G", "Draw gravity field \bg(ctrl+g)", m, Toggle)
 {
-
 }
 bool DrawGravOption::GetToggle()
 {
@@ -35,12 +29,8 @@ void DrawGravOption::perform()
 	m->ShowGravityGrid(!m->GetGravityGrid());
 }
 
-
-
-DecorationsOption::DecorationsOption(GameModel * m):
-QuickOption("D", "Draw decorations \bg(ctrl+b)", m, Toggle)
+DecorationsOption::DecorationsOption(GameModel *m) : QuickOption("D", "Draw decorations \bg(ctrl+b)", m, Toggle)
 {
-
 }
 bool DecorationsOption::GetToggle()
 {
@@ -51,12 +41,8 @@ void DecorationsOption::perform()
 	m->SetDecoration(!m->GetDecoration());
 }
 
-
-
-NGravityOption::NGravityOption(GameModel * m):
-QuickOption("N", "Newtonian Gravity \bg(n)", m, Toggle)
+NGravityOption::NGravityOption(GameModel *m) : QuickOption("N", "Newtonian Gravity \bg(n)", m, Toggle)
 {
-
 }
 bool NGravityOption::GetToggle()
 {
@@ -67,12 +53,8 @@ void NGravityOption::perform()
 	m->SetNewtonianGravity(!m->GetNewtonianGrvity());
 }
 
-
-
-AHeatOption::AHeatOption(GameModel * m):
-QuickOption("A", "Ambient heat \bg(u)", m, Toggle)
+AHeatOption::AHeatOption(GameModel *m) : QuickOption("A", "Ambient heat \bg(u)", m, Toggle)
 {
-
 }
 bool AHeatOption::GetToggle()
 {
@@ -83,10 +65,43 @@ void AHeatOption::perform()
 	m->SetAHeatEnable(!m->GetAHeatEnable());
 }
 
+TimeDilationOption::TimeDilationOption(GameModel *m) : QuickOption("T", "Time Dilation \bg(t)", m, Toggle)
+{
+}
+bool TimeDilationOption::GetToggle()
+{
+	return m->GetTimeDilationEnable();
+}
+void TimeDilationOption::perform()
+{
+	m->SetTimeDilationEnable(!m->GetTimeDilationEnable());
+}
 
+CompressibleGasesOption::CompressibleGasesOption(GameModel *m) : QuickOption("O", "Compressible Gases \bg(o)", m, Toggle)
+{
+}
+bool CompressibleGasesOption::GetToggle()
+{
+	return m->GetCompressibleGasesEnable();
+}
+void CompressibleGasesOption::perform()
+{
+	m->SetCompressibleGasesEnable(!m->GetCompressibleGasesEnable());
+}
 
-ConsoleShowOption::ConsoleShowOption(GameModel * m, GameController * c_):
-QuickOption("C", "Show Console \bg(~)", m, Toggle)
+DrawQuantumFieldsOption::DrawQuantumFieldsOption(GameModel *m) : QuickOption("Q", "Draw Quantum Fields \bg(q)", m, Toggle)
+{
+}
+bool DrawQuantumFieldsOption::GetToggle()
+{
+	return m->GetDrawQuantumFieldsEnable();
+}
+void DrawQuantumFieldsOption::perform()
+{
+	m->SetDrawQuantumFieldsEnable(!m->GetDrawQuantumFieldsEnable());
+}
+
+ConsoleShowOption::ConsoleShowOption(GameModel *m, GameController *c_) : QuickOption("C", "Show Console \bg(~)", m, Toggle)
 {
 	c = c_;
 }
