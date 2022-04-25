@@ -277,7 +277,7 @@ bool RecreateWindow()
 		SDL_DestroyWindow(sdl_window);
 	}
 
-	sdl_window = SDL_CreateWindow("The Powder Toy", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWW * scale, WINDOWH * scale,
+	sdl_window = SDL_CreateWindow("Cyens Toy", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOWW * scale, WINDOWH * scale,
 	                              flags);
 	if (!sdl_window)
 	{
@@ -303,8 +303,8 @@ bool RecreateWindow()
 	SDL_RaiseWindow(sdl_window);
 	SDL_SetHint(SDL_HINT_MOUSE_FOCUS_CLICKTHROUGH, "1");
 	//Uncomment this to enable resizing
-	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
-	//SDL_SetWindowResizable(sdl_window, SDL_TRUE);
+	// SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+	// SDL_SetWindowResizable(sdl_window, SDL_TRUE);
 
 	if (!Client::Ref().IsFirstRun())
 		LoadWindowPosition();
