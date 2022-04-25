@@ -144,7 +144,7 @@ Controls
 
 | Space | Pause |
 
-| Q / Esc | Quit |
+| Esc | Quit |
 
 | Z | Zoom |
 

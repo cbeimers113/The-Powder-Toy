@@ -198,14 +198,14 @@ public:
 	void SetNewtonianGravity(bool newtonainGravity);
 
 	// Cyens Toy options
-	bool GetTimeDilationEnable();
-	void SetTimeDilationEnable(bool timeDilation);
-	bool GetCompressibleGasesEnable();
-	void SetCompressibleGasesEnable(bool compressibleGases);
-	bool GetDrawQuantumFieldsEnable();
-	void SetDrawQuantumFieldsEnable(bool drawQuantumFields);
+	bool GetTimeDilation();
+	void SetTimeDilation(bool timeDilation);
+	bool GetCompressibleGases();
+	void SetCompressibleGases(bool compressibleGases);
+	bool GetDrawQuantumFields();
+	void SetDrawQuantumFields(bool drawQuantumFields);
 
-	bool GetNewtonianGrvity();
+	bool GetNewtonianGravity();
 	void ShowGravityGrid(bool showGrid);
 	bool GetGravityGrid();
 	void ClearSimulation();

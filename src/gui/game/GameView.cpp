@@ -1459,7 +1459,6 @@ void GameView::OnKeyPress(int key, int scan, bool repeat, bool shift, bool ctrl,
 		}
 		break;
 	case SDL_SCANCODE_ESCAPE:
-	case SDL_SCANCODE_Q:
 		ui::Engine::Ref().ConfirmExit();
 		break;
 	case SDL_SCANCODE_U:
@@ -1470,6 +1469,15 @@ void GameView::OnKeyPress(int key, int scan, bool repeat, bool shift, bool ctrl,
 		break;
 	case SDL_SCANCODE_N:
 		c->ToggleNewtonianGravity();
+		break;
+	case SDL_SCANCODE_O:
+		c->ToggleCompressibleGases();
+		break;
+	case SDL_SCANCODE_T:
+		c->ToggleTimeDilation();
+		break;
+	case SDL_SCANCODE_Q:
+		c->ToggleDrawQuantumFields();
 		break;
 	case SDL_SCANCODE_EQUALS:
 		if(ctrl)
