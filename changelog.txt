@@ -1,6 +1,6 @@
-All changes from version 5.0 are listed here
+All changes from version 5.0.0 are listed here
 
-Version 5.0:
+Version 5.0.0:
  * Cyens Toy is now forked from vanilla TPT, making it easier to keep up to date
  * Fresh new icons for menu sections added by Cyens Toy
  * Local gravity mode
