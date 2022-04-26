@@ -5517,6 +5517,26 @@ String Simulation::ElementResolve(int type, int ctype) const
 	return "Empty";
 }
 
+String Simulation::ElementResolveFull(int type, int ctype) const
+{
+	if (type == PT_LIFE)
+	{
+		if (ctype >= 0 && ctype < NGOL)
+		{
+			return builtinGol[ctype].name;
+		}
+		auto *cgol = GetCustomGOLByRule(ctype);
+		if (cgol)
+		{
+			return cgol->nameString;
+		}
+		return SerialiseGOLRule(ctype);
+	}
+	else if (type >= 0 && type < PT_NUM)
+		return elements[type].FullName;
+	return "Empty";
+}
+
 String Simulation::BasicParticleInfo(Particle const &sample_part) const
 {
 	StringBuilder sampleInfo;

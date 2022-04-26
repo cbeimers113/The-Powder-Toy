@@ -4,9 +4,10 @@ void Element::Element_DESL()
 {
 	Identifier = "DEFAULT_PT_DESL";
 	Name = "DESL";
+	FullName = "Diesel";
 	Colour = PIXPACK(0x440000);
 	MenuVisible = 1;
-	MenuSection = SC_LIQUID;
+	MenuSection = SC_ORGANIC;
 	Enabled = 1;
 
 	Advection = 1.0f;

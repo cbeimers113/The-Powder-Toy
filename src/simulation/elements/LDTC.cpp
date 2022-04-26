@@ -7,6 +7,7 @@ void Element::Element_LDTC()
 {
 	Identifier = "DEFAULT_PT_LDTC";
 	Name = "LDTC";
+	FullName = "Linear Detector";
 	Colour = PIXPACK(0x66ff66);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

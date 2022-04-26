@@ -4,6 +4,7 @@ void Element::Element_NITR()
 {
 	Identifier = "DEFAULT_PT_NITR";
 	Name = "NITR";
+	FullName = "Nitroglycerin";
 	Colour = PIXPACK(0x20E010);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

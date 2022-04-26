@@ -7,6 +7,7 @@ void Element::Element_LCRY()
 {
 	Identifier = "DEFAULT_PT_LCRY";
 	Name = "LCRY";
+	FullName = "Liquid Crystal";
 	Colour = PIXPACK(0x505050);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

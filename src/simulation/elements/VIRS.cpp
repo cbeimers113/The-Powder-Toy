@@ -7,9 +7,10 @@ void Element::Element_VIRS()
 {
 	Identifier = "DEFAULT_PT_VIRS";
 	Name = "VIRS";
+	FullName = "Virus";
 	Colour = PIXPACK(0xFE11F6);
 	MenuVisible = 1;
-	MenuSection = SC_LIQUID;
+	MenuSection = SC_BIOLOGY;
 	Enabled = 1;
 
 	Advection = 0.6f;

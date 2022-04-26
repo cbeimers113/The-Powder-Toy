@@ -7,9 +7,10 @@ void Element::Element_VRSS()
 {
 	Identifier = "DEFAULT_PT_VRSS";
 	Name = "VRSS";
+	FullName = "Solid Virus";
 	Colour = PIXPACK(0xD408CD);
 	MenuVisible = 0;
-	MenuSection = SC_SOLIDS;
+	MenuSection = SC_BIOLOGY;
 	Enabled = 1;
 
 	Advection = 0.0f;

@@ -7,6 +7,7 @@ void Element::Element_DMG()
 {
 	Identifier = "DEFAULT_PT_DMG";
 	Name = "DMG";
+	FullName = "Damager";
 	Colour = PIXPACK(0x88FF88);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

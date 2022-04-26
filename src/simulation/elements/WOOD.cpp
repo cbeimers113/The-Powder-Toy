@@ -8,9 +8,10 @@ void Element::Element_WOOD()
 {
 	Identifier = "DEFAULT_PT_WOOD";
 	Name = "WOOD";
+	FullName = "Wood";
 	Colour = PIXPACK(0xC0A040);
 	MenuVisible = 1;
-	MenuSection = SC_SOLIDS;
+	MenuSection = SC_BIOLOGY;
 	Enabled = 1;
 
 	Advection = 0.0f;

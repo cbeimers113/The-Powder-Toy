@@ -7,6 +7,7 @@ void Element::Element_VIBR()
 {
 	Identifier = "DEFAULT_PT_VIBR";
 	Name = "VIBR";
+	FullName = "Vibranium";
 	Colour = PIXPACK(0x005000);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

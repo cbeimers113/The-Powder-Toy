@@ -7,6 +7,7 @@ void Element::Element_SPNG()
 {
 	Identifier = "DEFAULT_PT_SPNG";
 	Name = "SPNG";
+	FullName = "Sponge";
 	Colour = PIXPACK(0xFFBE30);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

@@ -7,6 +7,7 @@ void Element::Element_PPIP()
 {
 	Identifier = "DEFAULT_PT_PPIP";
 	Name = "PPIP";
+	FullName = "Powered Pipe";
 	Colour = PIXPACK(0x444466);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

@@ -6,6 +6,7 @@ void Element::Element_MERC()
 {
 	Identifier = "DEFAULT_PT_MERC";
 	Name = "MERC";
+	FullName = "Mercury";
 	Colour = PIXPACK(0x736B6D);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

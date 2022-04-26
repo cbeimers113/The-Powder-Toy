@@ -6,6 +6,7 @@ void Element::Element_TSNS()
 {
 	Identifier = "DEFAULT_PT_TSNS";
 	Name = "TSNS";
+	FullName = "Temperature Sensor";
 	Colour = PIXPACK(0xFD00D5);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

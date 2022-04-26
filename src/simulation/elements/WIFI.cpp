@@ -7,6 +7,7 @@ void Element::Element_WIFI()
 {
 	Identifier = "DEFAULT_PT_WIFI";
 	Name = "WIFI";
+	FullName = "Wifi";
 	Colour = PIXPACK(0x40A060);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

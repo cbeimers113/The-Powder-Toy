@@ -6,6 +6,7 @@ void Element::Element_ISOZ()
 {
 	Identifier = "DEFAULT_PT_ISOZ";
 	Name = "ISOZ";
+	FullName = "Isotope-Z";
 	Colour = PIXPACK(0xAA30D0);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

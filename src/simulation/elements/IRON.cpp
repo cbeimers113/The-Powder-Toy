@@ -6,6 +6,7 @@ void Element::Element_IRON()
 {
 	Identifier = "DEFAULT_PT_IRON";
 	Name = "IRON";
+	FullName = "Iron";
 	Colour = PIXPACK(0x707070);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

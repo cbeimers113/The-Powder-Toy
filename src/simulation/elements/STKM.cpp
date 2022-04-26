@@ -14,6 +14,7 @@ void Element::Element_STKM()
 {
 	Identifier = "DEFAULT_PT_STKM";
 	Name = "STKM";
+	FullName = "Stickman";
 	Colour = PIXPACK(0xFFE0A0);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

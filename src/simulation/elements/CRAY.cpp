@@ -8,6 +8,7 @@ void Element::Element_CRAY()
 {
 	Identifier = "DEFAULT_PT_CRAY";
 	Name = "CRAY";
+	FullName = "Creation Ray";
 	Colour = PIXPACK(0xBBFF00);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

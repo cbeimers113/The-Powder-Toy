@@ -7,6 +7,7 @@ void Element::Element_PVOD()
 {
 	Identifier = "DEFAULT_PT_PVOD";
 	Name = "PVOD";
+	FullName = "Powered Void";
 	Colour = PIXPACK(0x792020);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

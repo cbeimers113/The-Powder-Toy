@@ -7,6 +7,7 @@ void Element::Element_BIZR()
 {
 	Identifier = "DEFAULT_PT_BIZR";
 	Name = "BIZR";
+	FullName = "Bizarre";
 	Colour = PIXPACK(0x00FF77);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

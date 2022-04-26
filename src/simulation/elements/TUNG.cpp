@@ -9,6 +9,7 @@ void Element::Element_TUNG()
 {
 	Identifier = "DEFAULT_PT_TUNG";
 	Name = "TUNG";
+	FullName = "Tungsten";
 	Colour = PIXPACK(0x505050);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

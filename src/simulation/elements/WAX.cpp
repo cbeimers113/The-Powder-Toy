@@ -4,9 +4,10 @@ void Element::Element_WAX()
 {
 	Identifier = "DEFAULT_PT_WAX";
 	Name = "WAX";
+	FullName = "Wax";
 	Colour = PIXPACK(0xF0F0BB);
 	MenuVisible = 1;
-	MenuSection = SC_SOLIDS;
+	MenuSection = SC_ORGANIC;
 	Enabled = 1;
 
 	Advection = 0.0f;

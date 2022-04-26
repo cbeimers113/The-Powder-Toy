@@ -7,6 +7,7 @@ void Element::Element_ROCK()
 {
 	Identifier = "DEFAULT_PT_ROCK";
 	Name = "ROCK";
+	FullName = "Rock";
 	Colour = PIXPACK(0x727272);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

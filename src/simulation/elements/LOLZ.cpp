@@ -4,6 +4,7 @@ void Element::Element_LOLZ()
 {
 	Identifier = "DEFAULT_PT_LOLZ";
 	Name = "LOLZ";
+	FullName = "Lolz";
 	Colour = PIXPACK(0x569212);
 	MenuVisible = 1;
 	MenuSection = SC_CRACKER2;

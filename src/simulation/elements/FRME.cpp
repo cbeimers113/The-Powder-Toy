@@ -6,6 +6,7 @@ void Element::Element_FRME()
 {
 	Identifier = "DEFAULT_PT_FRME";
 	Name = "FRME";
+	FullName = "Frame";
 	Colour = PIXPACK(0x999988);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

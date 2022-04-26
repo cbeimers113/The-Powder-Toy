@@ -7,6 +7,7 @@ void Element::Element_LITH()
 {
 	Identifier = "DEFAULT_PT_LITH";
 	Name = "LITH";
+	FullName = "Lithium";
 	Colour = PIXPACK(0xB6AABF);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

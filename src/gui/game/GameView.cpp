@@ -2198,7 +2198,7 @@ void GameView::OnDraw()
 				}
 				else
 				{
-					sampleInfo << c->ElementResolve(type, ctype);
+					sampleInfo << c->ElementResolveFull(type, ctype);
 					if (wavelengthGfx || type == PT_EMBR || type == PT_PRTI || type == PT_PRTO)
 					{
 						// Do nothing, ctype is meaningless for these elements

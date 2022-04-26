@@ -15,6 +15,7 @@ class Element
 public:
 	ByteString Identifier;
 	String Name;
+	String FullName;
 	pixel Colour;
 	int MenuVisible;
 	int MenuSection;

@@ -8,6 +8,7 @@ void Element::Element_SLCN()
 {
 	Identifier = "DEFAULT_PT_SLCN";
 	Name = "SLCN";
+	FullName = "Silicon";
 	Colour = PIXPACK(0xBCCDDF);
 	MenuVisible = 1;
 	MenuSection = SC_POWDERS;

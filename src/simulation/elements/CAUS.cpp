@@ -5,7 +5,8 @@ static int update(UPDATE_FUNC_ARGS);
 void Element::Element_CAUS()
 {
 	Identifier = "DEFAULT_PT_CAUS";
-	Name = "CAUS";
+	Name = "Cl2";
+	FullName = "Chlorine";
 	Colour = PIXPACK(0x80FFA0);
 	MenuVisible = 1;
 	MenuSection = SC_GAS;
@@ -18,7 +19,7 @@ void Element::Element_CAUS()
 	Collision = -0.1f;
 	Gravity = 0.0f;
 	Diffusion = 1.50f;
-	HotAir = 0.000f	* CFDS;
+	HotAir = 0.000f * CFDS;
 	Falldown = 0;
 
 	Flammable = 0;
@@ -29,9 +30,9 @@ void Element::Element_CAUS()
 	Weight = 1;
 
 	HeatConduct = 70;
-	Description = "Caustic Gas, acts like ACID.";
+	Description = "Chlorine gas, acts like ACID.";
 
-	Properties = TYPE_GAS|PROP_DEADLY;
+	Properties = TYPE_GAS | PROP_DEADLY;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
@@ -53,14 +54,14 @@ static int update(UPDATE_FUNC_ARGS)
 		for (int ry = -2; ry <= 2; ry++)
 			if (BOUNDS_CHECK && (rx || ry))
 			{
-				int r = pmap[y+ry][x+rx];
+				int r = pmap[y + ry][x + rx];
 				if (!r)
 					continue;
 				if (TYP(r) == PT_GAS)
 				{
-					if (sim->pv[(y+ry)/CELL][(x+rx)/CELL] > 3)
+					if (sim->pv[(y + ry) / CELL][(x + rx) / CELL] > 3)
 					{
-						sim->part_change_type(ID(r), x+rx, y+ry, PT_RFRG);
+						sim->part_change_type(ID(r), x + rx, y + ry, PT_RFRG);
 						sim->part_change_type(i, x, y, PT_RFRG);
 					}
 				}
@@ -69,7 +70,7 @@ static int update(UPDATE_FUNC_ARGS)
 					if ((TYP(r) != PT_CLNE && TYP(r) != PT_PCLN && RNG::Ref().chance(sim->elements[TYP(r)].Hardness, 1000)) && parts[i].life >= 50)
 					{
 						// GLAS protects stuff from acid
-						if (sim->parts_avg(i, ID(r),PT_GLAS) != PT_GLAS)
+						if (sim->parts_avg(i, ID(r), PT_GLAS) != PT_GLAS)
 						{
 							float newtemp = ((60.0f - (float)sim->elements[TYP(r)].Hardness)) * 7.0f;
 							if (newtemp < 0)

@@ -4,6 +4,7 @@ void Element::Element_WHOL()
 {
 	Identifier = "DEFAULT_PT_WHOL";
 	Name = "VENT";
+	FullName = "Vent";
 	Colour = PIXPACK(0xEFEFEF);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

@@ -6,6 +6,7 @@ void Element::Element_VSNS()
 {
 	Identifier = "DEFAULT_PT_VSNS";
 	Name = "VSNS";
+	FullName = "Velocity Sensor";
 	Colour = PIXPACK(0x7C9C00);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

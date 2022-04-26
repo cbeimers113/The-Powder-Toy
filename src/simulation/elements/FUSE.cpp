@@ -6,6 +6,7 @@ void Element::Element_FUSE()
 {
 	Identifier = "DEFAULT_PT_FUSE";
 	Name = "FUSE";
+	FullName = "Fuse";
 	Colour = PIXPACK(0x0A5706);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

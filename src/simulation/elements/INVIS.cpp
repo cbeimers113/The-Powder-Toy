@@ -7,6 +7,7 @@ void Element::Element_INVIS()
 {
 	Identifier = "DEFAULT_PT_INVIS";
 	Name = "INVS";
+	FullName = "Invisible";
 	Colour = PIXPACK(0x00CCCC);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

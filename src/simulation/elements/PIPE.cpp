@@ -14,6 +14,7 @@ void Element::Element_PIPE()
 {
 	Identifier = "DEFAULT_PT_PIPE";
 	Name = "PIPE";
+	FullName = "Pipe";
 	Colour = PIXPACK(0x444444);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

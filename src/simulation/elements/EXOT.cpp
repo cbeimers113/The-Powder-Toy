@@ -7,6 +7,7 @@ void Element::Element_EXOT()
 {
 	Identifier = "DEFAULT_PT_EXOT";
 	Name = "EXOT";
+	FullName = "Exotic Matter";
 	Colour = PIXPACK(0x247BFE);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

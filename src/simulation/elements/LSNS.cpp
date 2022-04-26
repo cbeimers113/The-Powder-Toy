@@ -6,6 +6,7 @@ void Element::Element_LSNS()
 {
 	Identifier = "DEFAULT_PT_LSNS";
 	Name = "LSNS";
+	FullName = "Life Sensor";
 	Colour = PIXPACK(0x336699);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

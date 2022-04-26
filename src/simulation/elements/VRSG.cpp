@@ -7,9 +7,10 @@ void Element::Element_VRSG()
 {
 	Identifier = "DEFAULT_PT_VRSG";
 	Name = "VRSG";
+	FullName = "Gas Virus";
 	Colour = PIXPACK(0xFE68FE);
 	MenuVisible = 0;
-	MenuSection = SC_GAS;
+	MenuSection = SC_BIOLOGY;
 	Enabled = 1;
 
 	Advection = 1.0f;

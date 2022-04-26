@@ -6,6 +6,7 @@ void Element::Element_FRAY()
 {
 	Identifier = "DEFAULT_PT_FRAY";
 	Name = "FRAY";
+	FullName = "Force Ray";
 	Colour = PIXPACK(0x00BBFF);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

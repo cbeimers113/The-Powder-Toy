@@ -6,6 +6,7 @@ void Element::Element_DTEC()
 {
 	Identifier = "DEFAULT_PT_DTEC";
 	Name = "DTEC";
+	FullName = "Detector";
 	Colour = PIXPACK(0xFD9D18);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

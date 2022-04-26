@@ -7,6 +7,7 @@ void Element::Element_CBNW()
 {
 	Identifier = "DEFAULT_PT_CBNW";
 	Name = "BUBW";
+	FullName = "Carbonated Water";
 	Colour = PIXPACK(0x2030D0);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;
