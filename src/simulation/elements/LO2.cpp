@@ -4,6 +4,7 @@ void Element::Element_LO2()
 {
 	Identifier = "DEFAULT_PT_LO2";
 	Name = "LOXY";
+	FullName = "Liquid Oxygen";
 	Colour = PIXPACK(0x80A0EF);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

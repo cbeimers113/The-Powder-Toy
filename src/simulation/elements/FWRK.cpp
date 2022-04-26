@@ -7,6 +7,7 @@ void Element::Element_FWRK()
 {
 	Identifier = "DEFAULT_PT_FWRK";
 	Name = "FWRK";
+	FullName = "Fireworks";
 	Colour = PIXPACK(0x666666);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

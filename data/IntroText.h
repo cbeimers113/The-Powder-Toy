@@ -2,7 +2,7 @@
 #include "Config.h"
 
 const char *const introTextData =
-	"\btCyens Toy \boVersion 5.0 \bg- \blhttps://github.com/cbeimers113/cyens-toy\n"
+	"\btCyens Toy \boVersion 5.0.0 \bg- \blhttps://github.com/cbeimers113/cyens-toy\n"
 	"\bgBuilt on "
 	"\brThe Powder Toy \boVersion " MTOS(SAVE_VERSION) "." MTOS(MINOR_VERSION) " \bg- \blhttps://powdertoy.co.uk\n"
 	"\bo---------------------------------------------------------------\n"
@@ -14,8 +14,6 @@ const char *const introTextData =
 	"This mod implements phenomena from several branches of chemistry and physics\n"
 	"which are feasible to simulate and fun to explore in a 2D particle simulator.\n"
 	"\n"
-	// TODO:
-	// Update this list as features are implemented
 	"\boFeatures:\n"
 	"\t\bg- Time Dilation\n"
 	"\t\bg- Local Gravity\n"

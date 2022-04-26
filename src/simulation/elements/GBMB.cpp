@@ -7,6 +7,7 @@ void Element::Element_GBMB()
 {
 	Identifier = "DEFAULT_PT_GBMB";
 	Name = "GBMB";
+	FullName = "Gravity Bomb";
 	Colour = PIXPACK(0x1144BB);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

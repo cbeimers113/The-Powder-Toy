@@ -7,6 +7,7 @@ void Element::Element_ACEL()
 {
 	Identifier = "DEFAULT_PT_ACEL";
 	Name = "ACEL";
+	FullName = "Accelerator";
 	Colour = PIXPACK(0x0099CC);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

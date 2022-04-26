@@ -4,6 +4,7 @@ void Element::Element_E146()
 {
 	Identifier = "DEFAULT_PT_146";
 	Name = "BRAN";
+	FullName = "Brian";
 	Colour = PIXPACK(0xCCCC00);
 	MenuVisible = 0;
 	MenuSection = SC_LIFE;

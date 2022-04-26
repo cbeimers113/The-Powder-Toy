@@ -8,6 +8,7 @@ void Element::Element_LAVA()
 {
 	Identifier = "DEFAULT_PT_LAVA";
 	Name = "LAVA";
+	FullName = "Lava";
 	Colour = PIXPACK(0xE05010);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

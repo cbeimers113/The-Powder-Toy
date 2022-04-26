@@ -7,6 +7,7 @@ void Element::Element_ACID()
 {
 	Identifier = "DEFAULT_PT_ACID";
 	Name = "ACID";
+	FullName = "Acid";
 	Colour = PIXPACK(0xED55FF);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

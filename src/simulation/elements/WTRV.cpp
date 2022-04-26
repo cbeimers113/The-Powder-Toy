@@ -6,6 +6,7 @@ void Element::Element_WTRV()
 {
 	Identifier = "DEFAULT_PT_WTRV";
 	Name = "WTRV";
+	FullName = "Steam";
 	Colour = PIXPACK(0xA0A0FF);
 	MenuVisible = 1;
 	MenuSection = SC_GAS;

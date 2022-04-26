@@ -8,6 +8,7 @@ void Element::Element_PCLN()
 {
 	Identifier = "DEFAULT_PT_PCLN";
 	Name = "PCLN";
+	FullName = "Powered Clone";
 	Colour = PIXPACK(0x3B3B0A);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

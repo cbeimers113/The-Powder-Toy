@@ -7,6 +7,7 @@ void Element::Element_SPAWN()
 {
 	Identifier = "DEFAULT_PT_SPAWN";
 	Name = "SPWN";
+	FullName = "Spawn Point";
 	Colour = PIXPACK(0xAAAAAA);
 	MenuVisible = 0;
 	MenuSection = SC_SOLIDS;

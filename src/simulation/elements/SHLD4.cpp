@@ -6,6 +6,7 @@ void Element::Element_SHLD4()
 {
 	Identifier = "DEFAULT_PT_SHLD4";
 	Name = "SHD4";
+	FullName = "Shield 4";
 	Colour = PIXPACK(0x212121);
 	MenuVisible = 0;
 	MenuSection = SC_CRACKER2;

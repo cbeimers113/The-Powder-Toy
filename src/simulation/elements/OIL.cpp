@@ -4,9 +4,10 @@ void Element::Element_OIL()
 {
 	Identifier = "DEFAULT_PT_OIL";
 	Name = "OIL";
+	FullName = "Oil";
 	Colour = PIXPACK(0x404010);
 	MenuVisible = 1;
-	MenuSection = SC_LIQUID;
+	MenuSection = SC_ORGANIC;
 	Enabled = 1;
 
 	Advection = 0.6f;

@@ -8,6 +8,7 @@ void Element::Element_GRAV()
 {
 	Identifier = "DEFAULT_PT_GRAV";
 	Name = "GRAV";
+	FullName = "Velocity Dust";
 	Colour = PIXPACK(0x202020);
 	MenuVisible = 1;
 	MenuSection = SC_POWDERS;

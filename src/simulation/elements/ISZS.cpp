@@ -6,6 +6,7 @@ void Element::Element_ISZS()
 {
 	Identifier = "DEFAULT_PT_ISZS";
 	Name = "ISZS";
+	FullName = "Solid Isotope-Z";
 	Colour = PIXPACK(0x662089);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

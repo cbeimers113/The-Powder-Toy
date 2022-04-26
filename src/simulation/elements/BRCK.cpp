@@ -6,6 +6,7 @@ void Element::Element_BRCK()
 {
 	Identifier = "DEFAULT_PT_BRCK";
 	Name = "BRCK";
+	FullName = "Brick";
 	Colour = PIXPACK(0x808080);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

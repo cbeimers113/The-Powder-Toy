@@ -6,6 +6,7 @@ void Element::Element_ARAY()
 {
 	Identifier = "DEFAULT_PT_ARAY";
 	Name = "ARAY";
+	FullName = "Ray Emitter";
 	Colour = PIXPACK(0xFFBB00);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

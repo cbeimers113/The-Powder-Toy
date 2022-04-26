@@ -15,6 +15,7 @@ void Element::Element_FIGH()
 {
 	Identifier = "DEFAULT_PT_FIGH";
 	Name = "FIGH";
+	FullName = "Fighter";
 	Colour = PIXPACK(0xFFE0A0);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

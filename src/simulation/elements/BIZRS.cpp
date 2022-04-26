@@ -7,6 +7,7 @@ void Element::Element_BIZRS()
 {
 	Identifier = "DEFAULT_PT_BIZRS";
 	Name = "BIZS";
+	FullName = "Bizarre Solid";
 	Colour = PIXPACK(0x00E455);
 	MenuVisible = 1;
 	MenuSection = SC_CRACKER2;

@@ -8,6 +8,7 @@ void Element::Element_QRTZ()
 {
 	Identifier = "DEFAULT_PT_QRTZ";
 	Name = "QRTZ";
+	FullName = "Quartz";
 	Colour = PIXPACK(0xAADDDD);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

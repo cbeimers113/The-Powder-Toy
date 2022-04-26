@@ -6,6 +6,7 @@ void Element::Element_PLUT()
 {
 	Identifier = "DEFAULT_PT_PLUT";
 	Name = "PLUT";
+	FullName = "Plutonium";
 	Colour = PIXPACK(0x407020);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

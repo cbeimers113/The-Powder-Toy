@@ -6,6 +6,7 @@ void Element::Element_PSNS()
 {
 	Identifier = "DEFAULT_PT_PSNS";
 	Name = "PSNS";
+	FullName = "Pressure Sensor";
 	Colour = PIXPACK(0xDB2020);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

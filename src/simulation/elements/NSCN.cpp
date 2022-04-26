@@ -4,6 +4,7 @@ void Element::Element_NSCN()
 {
 	Identifier = "DEFAULT_PT_NSCN";
 	Name = "NSCN";
+	FullName = "N-Type Silicon";
 	Colour = PIXPACK(0x505080);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

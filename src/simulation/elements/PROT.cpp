@@ -9,9 +9,10 @@ void Element::Element_PROT()
 {
 	Identifier = "DEFAULT_PT_PROT";
 	Name = "PROT";
+	FullName = "Proton";
 	Colour = PIXPACK(0x990000);
 	MenuVisible = 1;
-	MenuSection = SC_NUCLEAR;
+	MenuSection = SC_QUANTUM;
 	Enabled = 1;
 
 	Advection = 0.0f;

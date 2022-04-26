@@ -8,9 +8,10 @@ void Element::Element_PLNT()
 {
 	Identifier = "DEFAULT_PT_PLNT";
 	Name = "PLNT";
+	FullName = "Plant";
 	Colour = PIXPACK(0x0CAC00);
 	MenuVisible = 1;
-	MenuSection = SC_SOLIDS;
+	MenuSection = SC_BIOLOGY;
 	Enabled = 1;
 
 	Advection = 0.0f;

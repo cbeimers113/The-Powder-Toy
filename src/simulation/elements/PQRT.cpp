@@ -8,6 +8,7 @@ void Element::Element_PQRT()
 {
 	Identifier = "DEFAULT_PT_PQRT";
 	Name = "PQRT";
+	FullName = "Powdered Quartz";
 	Colour = PIXPACK(0x88BBBB);
 	MenuVisible = 1;
 	MenuSection = SC_POWDERS;

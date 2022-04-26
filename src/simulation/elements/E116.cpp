@@ -4,6 +4,7 @@ void Element::Element_E116()
 {
 	Identifier = "DEFAULT_PT_116";
 	Name = "EQVE";
+	FullName = "Shared Velocity Test";
 	Colour = PIXPACK(0xFFE0A0);
 	MenuVisible = 0;
 	MenuSection = SC_CRACKER2;

@@ -235,7 +235,7 @@ void GameModel::BuildQuickOptionMenu(GameController *controller)
 	quickOptions.push_back(new AHeatOption(this));
 	quickOptions.push_back(new TimeDilationOption(this));
 	quickOptions.push_back(new CompressibleGasesOption(this));
-	quickOptions.push_back(new DrawQuantumFieldsOption(this));
+	// quickOptions.push_back(new DrawQuantumFieldsOption(this));
 	quickOptions.push_back(new ConsoleShowOption(this, controller));
 
 	notifyQuickOptionsChanged();

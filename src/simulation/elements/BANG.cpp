@@ -6,6 +6,7 @@ void Element::Element_BANG()
 {
 	Identifier = "DEFAULT_PT_BANG";
 	Name = "TNT";
+	FullName = "Trinitrotoluene";
 	Colour = PIXPACK(0xC05050);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

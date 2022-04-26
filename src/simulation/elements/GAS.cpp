@@ -3,10 +3,11 @@
 void Element::Element_GAS()
 {
 	Identifier = "DEFAULT_PT_GAS";
-	Name = "GAS";
+	Name = "HCBN";
+	FullName = "Hydrocarbon";
 	Colour = PIXPACK(0xE0FF20);
 	MenuVisible = 1;
-	MenuSection = SC_GAS;
+	MenuSection = SC_ORGANIC;
 	Enabled = 1;
 
 	Advection = 1.0f;
@@ -28,7 +29,7 @@ void Element::Element_GAS()
 
 	DefaultProperties.temp = R_TEMP + 2.0f + 273.15f;
 	HeatConduct = 42;
-	Description = "Diffuses quickly and is flammable. Liquefies into OIL under pressure.";
+	Description = "Hydrocarbon gas. Diffuses quickly and is flammable. Liquefies into OIL under pressure.";
 
 	Properties = TYPE_GAS | PROP_NEUTPASS;
 

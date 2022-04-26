@@ -6,6 +6,7 @@ void Element::Element_NBHL()
 {
 	Identifier = "DEFAULT_PT_NBHL";
 	Name = "BHOL";
+	FullName = "Black Hole";
 	Colour = PIXPACK(0x202020);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

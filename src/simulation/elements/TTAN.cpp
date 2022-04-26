@@ -7,6 +7,7 @@ void Element::Element_TTAN()
 {
 	Identifier = "DEFAULT_PT_TTAN";
 	Name = "TTAN";
+	FullName = "Titanium";
 	Colour = PIXPACK(0x909090);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

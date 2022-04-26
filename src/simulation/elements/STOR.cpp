@@ -9,6 +9,7 @@ void Element::Element_STOR()
 {
 	Identifier = "DEFAULT_PT_STOR";
 	Name = "STOR";
+	FullName = "Storage";
 	Colour = PIXPACK(0x50DFDF);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

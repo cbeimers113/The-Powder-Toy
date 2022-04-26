@@ -4,6 +4,7 @@ void Element::Element_LNTG()
 {
 	Identifier = "DEFAULT_PT_LNTG";
 	Name = "LN2";
+	FullName = "Liquid Nitrogen";
 	Colour = PIXPACK(0x80A0DF);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

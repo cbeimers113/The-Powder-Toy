@@ -1,14 +1,20 @@
-
-## Cyens Toy 5
+## Cyens Toy 
+### Version 5.0.0
 
 #### Cyens Toy aims to enhance The Powder Toy by going deeper into science simulation. This mod implements phenomena from several branches of natural science which are feasible to simulate and fun to explore in a 2D particle simulator. 
 #### This iteration of firefreak11's mod implements the best features of previous mods including [The Science Toy](https://github.com/cbeimers113/The-Science-Toy) and [Metacircuits Mod](https://github.com/cbeimers113/metacircuits).
 ---
-**Features:**
+**Features**
 - Time Dilation
 - Local Gravity
 - Compressible Gases
 
+---
+**Version Numbering**
+_a.b.c_
+- a - incremented whenever Cyens Toy is updated to the latest vanilla codebase
+- b - incremented whenever there is a major feature added 
+- c - incremented whenever there is a minor feature or bugfix added
 ---
 
 ### The Powder Toy - July 2021

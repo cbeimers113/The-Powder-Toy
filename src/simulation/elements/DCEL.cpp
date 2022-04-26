@@ -7,6 +7,7 @@ void Element::Element_DCEL()
 {
 	Identifier = "DEFAULT_PT_DCEL";
 	Name = "DCEL";
+	FullName = "Decelerator";
 	Colour = PIXPACK(0x99CC00);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

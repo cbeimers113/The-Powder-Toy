@@ -10,9 +10,10 @@ void Element::Element_NEUT()
 {
 	Identifier = "DEFAULT_PT_NEUT";
 	Name = "NEUT";
+	FullName = "Neutron";
 	Colour = PIXPACK(0x20E0FF);
 	MenuVisible = 1;
-	MenuSection = SC_NUCLEAR;
+	MenuSection = SC_QUANTUM;
 	Enabled = 1;
 
 	Advection = 0.0f;

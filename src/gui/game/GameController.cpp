@@ -1522,6 +1522,18 @@ String GameController::ElementResolve(int type, int ctype)
 	return "";
 }
 
+String GameController::ElementResolveFull(int type, int ctype)
+{
+	// "NONE" should never be displayed in the HUD
+	if (!type)
+		return "";
+	if (gameModel && gameModel->GetSimulation())
+	{
+		return gameModel->GetSimulation()->ElementResolveFull(type, ctype);
+	}
+	return "";
+}
+
 String GameController::BasicParticleInfo(Particle const &sample_part)
 {
 	if (gameModel && gameModel->GetSimulation())

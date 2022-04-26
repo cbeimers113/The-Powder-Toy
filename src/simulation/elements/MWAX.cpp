@@ -4,9 +4,10 @@ void Element::Element_MWAX()
 {
 	Identifier = "DEFAULT_PT_MWAX";
 	Name = "MWAX";
+	FullName = "Melted Wax";
 	Colour = PIXPACK(0xE0E0AA);
 	MenuVisible = 1;
-	MenuSection = SC_LIQUID;
+	MenuSection = SC_ORGANIC;
 	Enabled = 1;
 
 	Advection = 0.3f;

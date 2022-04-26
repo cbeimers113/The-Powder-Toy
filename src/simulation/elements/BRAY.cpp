@@ -6,6 +6,7 @@ void Element::Element_BRAY()
 {
 	Identifier = "DEFAULT_PT_BRAY";
 	Name = "BRAY";
+	FullName = "Beta Ray";
 	Colour = PIXPACK(0xFFFFFF);
 	MenuVisible = 0;
 	MenuSection = SC_ELEC;

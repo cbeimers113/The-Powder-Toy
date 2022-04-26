@@ -6,6 +6,7 @@ void Element::Element_WATR()
 {
 	Identifier = "DEFAULT_PT_WATR";
 	Name = "WATR";
+	FullName = "Water";
 	Colour = PIXPACK(0x2030D0);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

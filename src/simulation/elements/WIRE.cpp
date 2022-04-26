@@ -7,6 +7,7 @@ void Element::Element_WIRE()
 {
 	Identifier = "DEFAULT_PT_WIRE";
 	Name = "WWLD";
+	FullName = "WireWorld";
 	Colour = PIXPACK(0xFFCC00);
 	MenuVisible = 1;
 	MenuSection = SC_ELEC;

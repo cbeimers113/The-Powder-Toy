@@ -7,6 +7,7 @@ void Element::Element_LIFE()
 {
 	Identifier = "DEFAULT_PT_LIFE";
 	Name = "LIFE";
+	FullName = "Life";
 	Colour = PIXPACK(0x0CAC00);
 	MenuVisible = 0;
 	MenuSection = SC_LIFE;

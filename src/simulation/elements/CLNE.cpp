@@ -6,6 +6,7 @@ void Element::Element_CLNE()
 {
 	Identifier = "DEFAULT_PT_CLNE";
 	Name = "CLNE";
+	FullName = "Clone";
 	Colour = PIXPACK(0xFFD010);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

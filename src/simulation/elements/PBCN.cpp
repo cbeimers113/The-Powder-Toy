@@ -8,6 +8,7 @@ void Element::Element_PBCN()
 {
 	Identifier = "DEFAULT_PT_PBCN";
 	Name = "PBCN";
+	FullName = "Powered Breakable Clone";
 	Colour = PIXPACK(0x3B1D0A);
 	MenuVisible = 1;
 	MenuSection = SC_POWERED;

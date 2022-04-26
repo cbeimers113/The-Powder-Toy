@@ -8,6 +8,7 @@ void Element::Element_CLST()
 {
 	Identifier = "DEFAULT_PT_CLST";
 	Name = "CLST";
+	FullName = "Clay Dust";
 	Colour = PIXPACK(0xE4A4A4);
 	MenuVisible = 1;
 	MenuSection = SC_POWDERS;

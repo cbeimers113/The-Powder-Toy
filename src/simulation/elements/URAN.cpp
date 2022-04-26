@@ -6,6 +6,7 @@ void Element::Element_URAN()
 {
 	Identifier = "DEFAULT_PT_URAN";
 	Name = "URAN";
+	FullName = "Uranium";
 	Colour = PIXPACK(0x707020);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

@@ -8,6 +8,7 @@ void Element::Element_PTNM()
 {
 	Identifier = "DEFAULT_PT_PTNM";
 	Name = "PTNM";
+	FullName = "Platinum";
 	Colour = PIXPACK(0xD5E0EB);
 	MenuVisible = 1;
 	MenuSection = SC_SOLIDS;

@@ -12,6 +12,7 @@ void Element::Element_TRON()
 {
 	Identifier = "DEFAULT_PT_TRON";
 	Name = "TRON";
+	FullName = "Tron";
 	Colour = PIXPACK(0xA9FF00);
 	MenuVisible = 1;
 	MenuSection = SC_SPECIAL;

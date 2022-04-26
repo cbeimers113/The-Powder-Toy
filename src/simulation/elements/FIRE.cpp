@@ -10,6 +10,7 @@ void Element::Element_FIRE()
 {
 	Identifier = "DEFAULT_PT_FIRE";
 	Name = "FIRE";
+	FullName = "Fire";
 	Colour = PIXPACK(0xFF1000);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

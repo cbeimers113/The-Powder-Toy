@@ -7,6 +7,7 @@ void Element::Element_BVBR()
 {
 	Identifier = "DEFAULT_PT_BVBR";
 	Name = "BVBR";
+	FullName = "Broken Vibranium";
 	Colour = PIXPACK(0x005000);
 	MenuVisible = 1;
 	MenuSection = SC_NUCLEAR;

@@ -7,6 +7,7 @@ void Element::Element_GLOW()
 {
 	Identifier = "DEFAULT_PT_GLOW";
 	Name = "GLOW";
+	FullName = "Glow";
 	Colour = PIXPACK(0x445464);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

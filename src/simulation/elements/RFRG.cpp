@@ -6,6 +6,7 @@ void Element::Element_RFRG()
 {
 	Identifier = "DEFAULT_PT_RFRG";
 	Name = "RFRG";
+	FullName = "Refrigerant";
 	Colour = PIXPACK(0x72D2D4);
 	MenuVisible = 1;
 	MenuSection = SC_GAS;

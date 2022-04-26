@@ -6,6 +6,7 @@ void Element::Element_FSEP()
 {
 	Identifier = "DEFAULT_PT_FSEP";
 	Name = "FSEP";
+	FullName = "Fuse Powder";
 	Colour = PIXPACK(0x63AD5F);
 	MenuVisible = 1;
 	MenuSection = SC_EXPLOSIVE;

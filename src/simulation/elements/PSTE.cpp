@@ -4,6 +4,7 @@ void Element::Element_PSTE()
 {
 	Identifier = "DEFAULT_PT_PSTE";
 	Name = "PSTE";
+	FullName = "Paste";
 	Colour = PIXPACK(0xAA99AA);
 	MenuVisible = 1;
 	MenuSection = SC_LIQUID;

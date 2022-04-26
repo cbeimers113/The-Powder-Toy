@@ -9,9 +9,10 @@ void Element::Element_PHOT()
 {
 	Identifier = "DEFAULT_PT_PHOT";
 	Name = "PHOT";
+	FullName = "Photon";
 	Colour = PIXPACK(0xFFFFFF);
 	MenuVisible = 1;
-	MenuSection = SC_NUCLEAR;
+	MenuSection = SC_QUANTUM;
 	Enabled = 1;
 
 	Advection = 0.0f;
