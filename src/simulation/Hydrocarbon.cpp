@@ -286,4 +286,27 @@ void update_organic_molecule(int i, Simulation *sim)
             molecule->tmp -= nH;
         }
     }
+    // If not decomposing, check if we can form a more complex molecule with surrounding particles
+    else
+    {
+        int r, rx, ry;
+
+        for (ry = -2; ry <= 2; ry++)
+            for (rx = -2; rx <= 2; rx++)
+                if (BOUNDS_CHECK && (rx || ry))
+                {
+                    r = sim->pmap[y + ry][x + rx];
+
+                    if (!r)
+                        continue;
+
+                    // If this molecule collides with a short-chain hydrocarbon and it's hot enough, join them together
+                    if (TYP(r) == PT_GAS && (sim->parts[ID(r)].temp + molecule->temp) / 2 > 273.15f + molecule->life * 100 - sim->pv[y / CELL][x / CELL])
+                    {
+                        molecule->life += sim->parts[ID(r)].life;
+                        molecule->tmp += sim->parts[ID(r)].tmp - 2;
+                        sim->part_change_type(ID(r), x + rx, y + ry, PT_H2);
+                    }
+                }
+    }
 }
