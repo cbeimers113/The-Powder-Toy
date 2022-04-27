@@ -55,7 +55,7 @@ void Element::Element_COAL()
 int Element_COAL_update(UPDATE_FUNC_ARGS)
 {
 	if (parts[i].life<=0) {
-		sim->create_part(i, x, y, PT_FIRE);
+		sim->create_part(i, x, y, RNG::Ref().chance(1, 100) ? PT_CRBN : PT_FIRE);		
 		return 1;
 	} else if (parts[i].life < 100) {
 		parts[i].life--;

@@ -16,13 +16,12 @@ struct Particle
 	int flags;
 	int tmp;	// Used to store number of hydrogens for hydrocarbons
 	int tmp2;
-	int tmp3;
-	int tmp4;
+	int tmp3;	// Used as decomposition timer
+	int tmp4;	// Used for gas compression
 	unsigned int dcolour;
 
-	// Cyens Toy Properties
+	// non-persistent Cyens Toy Properties
 	int time_dilation_timer;
-	int gas_compression;
 
 	/** Returns a list of properties, their type and offset within the structure that can be changed
 	 by higher-level processes referring to them by name such as Lua or the property tool **/
