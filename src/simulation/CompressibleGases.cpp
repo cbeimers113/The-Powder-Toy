@@ -35,10 +35,10 @@ void update_compressible_gases(int i, Simulation *sim)
             if (i == ID(adj) || sim->parts[ID(adj)].type != sim->parts[i].type)
                 continue;
 
-            if (sim->parts[i].gas_compression < 5 && !sim->parts[ID(adj)].gas_compression && pressure > min_compression + sim->parts[i].gas_compression * 25)
+            if (sim->parts[i].tmp4 < 5 && !sim->parts[ID(adj)].tmp4 && pressure > min_compression + sim->parts[i].tmp4 * 25)
             {
-                int g = sim->parts[ID(adj)].gas_compression;
-                sim->parts[i].gas_compression += !g ? 1 : g;
+                int g = sim->parts[ID(adj)].tmp4;
+                sim->parts[i].tmp4 += !g ? 1 : g;
                 sim->pv[y / CELL][x / CELL] -= 5;
                 sim->kill_part(ID(adj));
             }
@@ -46,10 +46,10 @@ void update_compressible_gases(int i, Simulation *sim)
     }
 
     // Decompression
-    if (sim->parts[i].gas_compression && (decompX + decompY > 0) && pressure <= min_compression + sim->parts[i].gas_compression * 25)
+    if (sim->parts[i].tmp4 && (decompX + decompY > 0) && pressure <= min_compression + sim->parts[i].tmp4 * 25)
     {
         sim->create_part(-1, decompX, decompY, sim->parts[i].type);
-        sim->parts[i].gas_compression--;
+        sim->parts[i].tmp4--;
         sim->pv[y / CELL][x / CELL] += 5;
     }
 }
