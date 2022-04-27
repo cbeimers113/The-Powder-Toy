@@ -1,9 +1,11 @@
 simulation_files = files(
 	'Air.cpp',
+	'CompressibleGases.cpp',
 	'Element.cpp',
 	'ElementClasses.cpp',
 	'GOLString.cpp',
 	'Gravity.cpp',
+	'Hydrocarbon.cpp',
 	'Particle.cpp',
 	'SaveRenderer.cpp',
 	'Sign.cpp',

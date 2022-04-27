@@ -2,7 +2,7 @@
 #include "Config.h"
 
 const char *const introTextData =
-	"\btCyens Toy \boVersion 5.0.0 \bg- \blhttps://github.com/cbeimers113/cyens-toy\n"
+	"\btCyens Toy \boVersion 5.0.0 \bg- \blhttps://tpt.io/.302980\n"
 	"\bgBuilt on "
 	"\brThe Powder Toy \boVersion " MTOS(SAVE_VERSION) "." MTOS(MINOR_VERSION) " \bg- \blhttps://powdertoy.co.uk\n"
 	"\bo---------------------------------------------------------------\n"
@@ -18,7 +18,7 @@ const char *const introTextData =
 	"\t\bg- Time Dilation\n"
 	"\t\bg- Local Gravity\n"
 	"\t\bg- Compressible Gases\n"
-	// "\t\bg- Organic Chemistry\n"
+	"\t\bg- Organic Chemistry\n"
 	// "\t\bg- Digital Logic\n"
 	// "\t\bg- Biochemistry\n"
 	"\n"

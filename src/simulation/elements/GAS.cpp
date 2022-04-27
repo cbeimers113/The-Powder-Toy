@@ -1,10 +1,12 @@
 #include "simulation/ElementCommon.h"
 
+static void create(ELEMENT_CREATE_FUNC_ARGS);
+
 void Element::Element_GAS()
 {
 	Identifier = "DEFAULT_PT_GAS";
-	Name = "HCBN";
-	FullName = "Hydrocarbon";
+	Name = "GAS";
+	FullName = "Natural Gas";
 	Colour = PIXPACK(0xE0FF20);
 	MenuVisible = 1;
 	MenuSection = SC_ORGANIC;
@@ -17,28 +19,36 @@ void Element::Element_GAS()
 	Collision = -0.1f;
 	Gravity = 0.0f;
 	Diffusion = 0.75f;
-	HotAir = 0.001f	* CFDS;
+	HotAir = 0.001f * CFDS;
 	Falldown = 0;
 
-	Flammable = 600;
+	Flammable = 0;
 	Explosive = 0;
 	Meltable = 0;
 	Hardness = 1;
 
 	Weight = 1;
 
-	DefaultProperties.temp = R_TEMP + 2.0f + 273.15f;
 	HeatConduct = 42;
-	Description = "Hydrocarbon gas. Diffuses quickly and is flammable. Liquefies into OIL under pressure.";
+	Description = "Natural hydrocarbon gas. Diffuses quickly and is flammable. Liquefies under pressure.";
 
 	Properties = TYPE_GAS | PROP_NEUTPASS;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
-	HighPressure = 6.0f;
-	HighPressureTransition = PT_OIL;
+	HighPressure = IPH;
+	HighPressureTransition = NT;
 	LowTemperature = ITL;
 	LowTemperatureTransition = NT;
-	HighTemperature = 573.0f;
-	HighTemperatureTransition = PT_FIRE;
+	HighTemperature = ITH;
+	HighTemperatureTransition = NT;
+
+	Create = &create;
+}
+
+static void create(ELEMENT_CREATE_FUNC_ARGS)
+{
+	// Initialize GAS as somewhere in the range of methane to butane
+	sim->parts[i].life = RNG::Ref().between(1, 4);
+	sim->parts[i].tmp = (sim->parts[i].life + RNG::Ref().between(-1, 1)) * 2;
 }

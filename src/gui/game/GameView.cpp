@@ -24,6 +24,7 @@
 #include "gui/Style.h"
 #include "simulation/ElementClasses.h"
 #include "simulation/ElementDefs.h"
+#include "simulation/Hydrocarbon.h"
 #include "simulation/SaveRenderer.h"
 #include "simulation/SimulationData.h"
 
@@ -2203,6 +2204,7 @@ void GameView::OnDraw()
 		if (type)
 		{
 			int ctype = sample.particle.ctype;
+			bool organic = type == PT_GAS || type == PT_MWAX || type == PT_OIL || type == PT_WAX;
 
 			if (type == PT_PHOT || type == PT_BIZR || type == PT_BIZRG || type == PT_BIZRS || type == PT_FILT || type == PT_BRAY || type == PT_C5)
 				wavelengthGfx = (ctype&0x3FFFFFFF);
@@ -2240,10 +2242,16 @@ void GameView::OnDraw()
 				else
 				{
 					sampleInfo << c->ElementResolveFull(type, ctype);
+
+					// Use the organic chemistry naming algorithm for organic molecules
+					if(organic)
+						sampleInfo << ": " << get_hydrocarbon_name(sample.particle.life, sample.particle.tmp);
+
 					if (wavelengthGfx || type == PT_EMBR || type == PT_PRTI || type == PT_PRTO)
 					{
 						// Do nothing, ctype is meaningless for these elements
 					}
+					
 					// Some elements store extra LIFE info in upper bits of ctype, instead of tmp/tmp2
 					else if (type == PT_CRAY || type == PT_DRAY || type == PT_CONV || type == PT_LDTC)
 						sampleInfo << " (" << c->ElementResolve(TYP(ctype), ID(ctype)) << ")";
@@ -2254,8 +2262,15 @@ void GameView::OnDraw()
 					else if (ctype)
 						sampleInfo << " (" << ctype << ")";
 				}
-				sampleInfo << ", Temp: " << (sample.particle.temp - 273.15f) << " C";
-				sampleInfo << ", Life: " << sample.particle.life;
+				
+				if(organic)
+					sampleInfo << ", C" << sample.particle.life;
+				else
+				{
+					sampleInfo << ", Temp: " << (sample.particle.temp - 273.15f) << " C";
+					sampleInfo << ", Life: " << sample.particle.life;
+				}
+
 				if (sample.particle.type != PT_RFRG && sample.particle.type != PT_RFGL && sample.particle.type != PT_LIFE)
 				{
 					if (sample.particle.type == PT_CONV)
@@ -2267,6 +2282,11 @@ void GameView::OnDraw()
 							sampleInfo << ", Tmp: " << sample.particle.tmp;
 						else
 							sampleInfo << ", Tmp: " << elemName;
+					}
+					else if (organic)
+					{
+						sampleInfo << "H" << sample.particle.tmp;
+						sampleInfo << ", Temp: " << (sample.particle.temp - 273.15f) << " C";
 					}
 					else
 						sampleInfo << ", Tmp: " << sample.particle.tmp;

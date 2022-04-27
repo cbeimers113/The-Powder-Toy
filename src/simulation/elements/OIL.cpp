@@ -1,5 +1,7 @@
 #include "simulation/ElementCommon.h"
 
+static void create(ELEMENT_CREATE_FUNC_ARGS);
+
 void Element::Element_OIL()
 {
 	Identifier = "DEFAULT_PT_OIL";
@@ -17,10 +19,10 @@ void Element::Element_OIL()
 	Collision = 0.0f;
 	Gravity = 0.1f;
 	Diffusion = 0.00f;
-	HotAir = 0.000f	* CFDS;
+	HotAir = 0.000f * CFDS;
 	Falldown = 2;
 
-	Flammable = 20;
+	Flammable = 0;
 	Explosive = 0;
 	Meltable = 0;
 	Hardness = 5;
@@ -28,7 +30,7 @@ void Element::Element_OIL()
 	Weight = 20;
 
 	HeatConduct = 42;
-	Description = "Flammable, turns into GAS at low pressure or high temperature.";
+	Description = "Low-carbon oil. Flammable, turns into GAS at low pressure or high temperature. Can be formed with NEUT and NITR.";
 
 	Properties = TYPE_LIQUID | PROP_NEUTPASS;
 
@@ -38,6 +40,15 @@ void Element::Element_OIL()
 	HighPressureTransition = NT;
 	LowTemperature = ITL;
 	LowTemperatureTransition = NT;
-	HighTemperature = 333.0f;
-	HighTemperatureTransition = PT_GAS;
+	HighTemperature = ITH;
+	HighTemperatureTransition = NT;
+
+	Create = &create;
+}
+
+static void create(ELEMENT_CREATE_FUNC_ARGS)
+{
+	// Initialize OIL as somewhere in the range of pentane to decane
+	sim->parts[i].life = RNG::Ref().between(5, 10);
+	sim->parts[i].tmp = (sim->parts[i].life + RNG::Ref().between(-1, 1)) * 2;
 }

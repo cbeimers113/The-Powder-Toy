@@ -1,5 +1,7 @@
 #include "simulation/ElementCommon.h"
 
+static void create(ELEMENT_CREATE_FUNC_ARGS);
+
 void Element::Element_WAX()
 {
 	Identifier = "DEFAULT_PT_WAX";
@@ -17,7 +19,7 @@ void Element::Element_WAX()
 	Collision = 0.0f;
 	Gravity = 0.0f;
 	Diffusion = 0.00f;
-	HotAir = 0.000f	* CFDS;
+	HotAir = 0.000f * CFDS;
 	Falldown = 0;
 
 	Flammable = 0;
@@ -38,6 +40,15 @@ void Element::Element_WAX()
 	HighPressureTransition = NT;
 	LowTemperature = ITL;
 	LowTemperatureTransition = NT;
-	HighTemperature = 319.0f;
-	HighTemperatureTransition = PT_MWAX;
+	HighTemperature = ITH;
+	HighTemperatureTransition = NT;
+
+	Create = &create;
+}
+
+static void create(ELEMENT_CREATE_FUNC_ARGS)
+{
+	// Initialize WAX as somewhere in the range above isocane
+	sim->parts[i].life = RNG::Ref().between(21, 60);
+	sim->parts[i].tmp = (sim->parts[i].life + RNG::Ref().between(-1, 1)) * 2;
 }
