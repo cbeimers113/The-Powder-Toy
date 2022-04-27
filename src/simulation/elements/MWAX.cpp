@@ -1,5 +1,7 @@
 #include "simulation/ElementCommon.h"
 
+static void create(ELEMENT_CREATE_FUNC_ARGS);
+
 void Element::Element_MWAX()
 {
 	Identifier = "DEFAULT_PT_MWAX";
@@ -20,16 +22,15 @@ void Element::Element_MWAX()
 	HotAir = 0.000001f* CFDS;
 	Falldown = 2;
 
-	Flammable = 5;
+	Flammable = 0;
 	Explosive = 0;
 	Meltable = 0;
 	Hardness = 2;
 
 	Weight = 25;
 
-	DefaultProperties.temp = R_TEMP + 28.0f + 273.15f;
 	HeatConduct = 44;
-	Description = "Liquid Wax. Hardens into WAX at 45 degrees.";
+	Description = "High-carbon liquid wax. Boils into GAS.";
 
 	Properties = TYPE_LIQUID;
 
@@ -37,8 +38,17 @@ void Element::Element_MWAX()
 	LowPressureTransition = NT;
 	HighPressure = IPH;
 	HighPressureTransition = NT;
-	LowTemperature = 318.0f;
-	LowTemperatureTransition = PT_WAX;
-	HighTemperature = 673.0f;
-	HighTemperatureTransition = PT_FIRE;
+	LowTemperature = ITL;
+	LowTemperatureTransition = NT;
+	HighTemperature = ITH;
+	HighTemperatureTransition = NT;
+
+	Create = &create;
+}
+
+static void create(ELEMENT_CREATE_FUNC_ARGS)
+{
+	// Initialize MWAX as somewhere in the range of undecane to isocane
+	sim->parts[i].life = RNG::Ref().between(11, 20);
+	sim->parts[i].tmp = (sim->parts[i].life + RNG::Ref().between(-1, 1)) * 2;
 }

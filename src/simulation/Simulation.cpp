@@ -10,10 +10,12 @@
 #endif
 
 #include "Air.h"
+#include "CompressibleGases.h"
 #include "Config.h"
 #include "CoordStack.h"
 #include "ElementClasses.h"
 #include "Gravity.h"
+#include "Hydrocarbon.h"
 #include "Sample.h"
 #include "Snapshot.h"
 
@@ -4188,53 +4190,13 @@ void Simulation::UpdateParticles(int start, int end)
 			if (legacy_enable) // if heat sim is off
 				Element::legacyUpdate(this, i, x, y, surround_space, nt, parts, pmap);
 
-			// TODO: Figure out why here exactly was the best place to put this
+			// Organic molecules
+			if (parts[i].type == PT_GAS || parts[i].type == PT_MWAX || parts[i].type == PT_OIL || parts[i].type == PT_WAX)
+				update_organic_molecule(i, this);
 
-			// Compressible Gases
+			// Compressible gases
 			if (do_compressible_gases && (elements[t].Properties & TYPE_GAS))
-			{
-				float pressure = pv[y / CELL][x / CELL];
-				int decompX = -1;
-				int decompY = -1;
-				int min_compression = 50;
-
-				for (int xx = -1; xx <= 1; xx++)
-				{
-					int xOffs = parts[i].x + xx;
-					if (xOffs < 0 || xOffs >= XRES)
-						continue;
-					for (int yy = -1; yy <= 1; yy++)
-					{
-						int yOffs = parts[i].y + yy;
-						if (yOffs < 0 || yOffs >= YRES)
-							continue;
-						int adj = pmap[yOffs][xOffs];
-						if (!adj)
-						{
-							decompX = xOffs;
-							decompY = yOffs;
-							continue;
-						}
-						if (i == ID(adj) || parts[ID(adj)].type != parts[i].type)
-							continue;
-						if (parts[i].gas_compression < 5 && !parts[ID(adj)].gas_compression && pressure > min_compression + parts[i].gas_compression * 25)
-						{
-							int g = parts[ID(adj)].gas_compression;
-							parts[i].gas_compression += !g ? 1 : g;
-							pv[y / CELL][x / CELL] -= 5;
-							kill_part(ID(adj));
-						}
-					}
-				}
-
-				// Decompression
-				if (parts[i].gas_compression && (decompX + decompY > 0) && pressure <= min_compression + parts[i].gas_compression * 25)
-				{
-					create_part(-1, decompX, decompY, parts[i].type);
-					parts[i].gas_compression--;
-					pv[y / CELL][x / CELL] += 5;
-				}
-			}
+				update_compressible_gases(i, this);
 
 		killed:
 			if (parts[i].type == PT_NONE) // if its dead, skip to next particle
@@ -5533,7 +5495,9 @@ String Simulation::ElementResolveFull(int type, int ctype) const
 		return SerialiseGOLRule(ctype);
 	}
 	else if (type >= 0 && type < PT_NUM)
+	{
 		return elements[type].FullName;
+	}
 	return "Empty";
 }
 

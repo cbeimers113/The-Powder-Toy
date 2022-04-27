@@ -10,4 +10,6 @@ Version 5.0.0:
  * FullName field for elements that shows up in detailed HUD
  * Renamed some vanilla elements
  * Moved some elements to more appropriate menu sections
- 
+ * The hydrocarbons system has been rewritten to be simpler
+ * Hydrocarbons's phase transitions and combustion are determined by temp, pressure and number of carbons
+ * The hydrocarbons exist in either gas (GAS), liquid (OIL or MWAX) or solid (WAX) phase.
