@@ -2,13 +2,27 @@
 ### Version 5.0.0
 
 #### Cyens Toy aims to enhance The Powder Toy by going deeper into science simulation. This mod implements phenomena from several branches of natural science which are feasible to simulate and fun to explore in a 2D particle simulator. 
-#### This iteration of firefreak11's mod implements the best features of previous mods including [The Science Toy](https://github.com/cbeimers113/The-Science-Toy) and [Metacircuits Mod](https://github.com/cbeimers113/metacircuits).
 ---
 **Features**
 - Time Dilation
+	- Particles tick slower in the presence of gravitational fields
+	- Toggle with T
 - Local Gravity
+	- Particles each exert a gravitational field proportional to their mass
+	- Cycle through gravity modes with W
 - Compressible Gases
+	- Gases will compress up to 5 layers under strong pressure and decompress when the pressure is low
+	- Toggle with O
 - Hydrocarbons System
+	- Hydrocarbons are formed from CRBN and H2 as methane
+	- The number of carbons and hydrogens are determined by life and tmp respectively
+	- Smaller hydrocarbons can bond together if hot enough
+	- Hydrocarbons' phase transitions and combustion are determined by temperature, pressure and number of carbons
+	- The hydrocarbons exist in either gas (GAS), liquid (OIL or MWAX) or solid (WAX) phase. OIL is the liquid phase of shorter molecules with 1-10 carbons, and MWAX is that of longer molecules with 11 - 60 carbons
+	- Hydrocarbons decompose into smaller hydrocarbons over time, with larger molecules decomposing quicker
+	- Hydrocarbon name displayed in HUD detailed mode (toggle with D)
+
+For other features, see the [changelog](https://github.com/cbeimers113/cyens-toy/blob/master/changelog.txt).
 
 ---
 **Version Numbering**

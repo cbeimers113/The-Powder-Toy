@@ -270,7 +270,18 @@ int Element_FIRE_update(UPDATE_FUNC_ARGS)
 					(t != PT_PHOT || rt != PT_INSL) &&
 					(rt != PT_SPNG || parts[ID(r)].life == 0))
 				{
-					int combust_type = parts[ID(r)].type == PT_WOOD && RNG::Ref().chance(1, 100) ? PT_CRBN : PT_FIRE;
+					int combust_type = PT_FIRE;
+
+					if (parts[ID(r)].type == PT_WOOD)
+					{
+						int rand_combust = RNG::Ref().between(0, 50);
+						
+						if (rand_combust == 0)
+							combust_type = PT_CRBN;
+						else if (rand_combust == 1)
+							combust_type = PT_EMBR;
+					}
+
 					sim->part_change_type(ID(r), x + rx, y + ry, combust_type);
 					parts[ID(r)].temp = restrict_flt(sim->elements[PT_FIRE].DefaultProperties.temp + (sim->elements[rt].Flammable / 2), MIN_TEMP, MAX_TEMP);
 					parts[ID(r)].life = RNG::Ref().between(180, 259);

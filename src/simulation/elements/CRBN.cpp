@@ -51,11 +51,9 @@ static int update(UPDATE_FUNC_ARGS)
 {
     int r, rx, ry;
 
-    // Look for 4 hydrogens to create methane
+    // Look for 4 hydrogens (2 H2) to create methane
     int H1 = -1;
     int H2 = -1;
-    int H3 = -1;
-    int H4 = -1;
 
     for (rx = -2; rx < 3; rx++)
         for (ry = -2; ry < 3; ry++)
@@ -73,21 +71,15 @@ static int update(UPDATE_FUNC_ARGS)
                         H1 = ID(r);
                     else if (H2 == -1)
                         H2 = ID(r);
-                    else if (H3 == -1)
-                        H3 = ID(r);
-                    else if (H4 == -1)
-                        H4 = ID(r);
 
                     // Create methane if we have all 4 hydrogens
-                    if (H1 != -1 && H2 != -1 && H3 != -1 && H4 != -1)
+                    if (H1 != -1 && H2 != -1)
                     {
                         parts[i].life = 1;
                         parts[i].tmp = 4;
                         sim->part_change_type(i, x, y, PT_GAS);
                         sim->kill_part(H1);
                         sim->kill_part(H2);
-                        sim->kill_part(H3);
-                        sim->kill_part(H4);
                         return 0;
                     }
                 }
