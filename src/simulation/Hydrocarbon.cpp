@@ -268,17 +268,18 @@ void update_organic_molecule(int i, Simulation *sim)
     }
 
     // Large hydrocarbons will decompose over time with longer molecules going fastest
-    if (C > 4 && RNG::Ref().chance(1, restrict_flt(10000 - (C * 100) - ++molecule->tmp3, 1, 10000)))
+    if (C > 30 && RNG::Ref().chance(1, restrict_flt(10000 - (C * 100) - ++molecule->tmp3, 1, 10000)))
     {
         int rx = RNG::Ref().between(-1, 1);
-        int ry = -1;
+        int ry = RNG::Ref().between(-1, 1);
         int np = sim->create_part(-1, x + rx, y + ry, molecule->type);
 
-        if (np > -1)
+        if (np != -1)
         {
+            // Give off methane
             Particle *newPart = &(sim->parts[ID(np)]);
-            int nC = C / 2;
-            int nH = 2 * (RNG::Ref().between(-1, 1) + nC);
+            int nC = 1;
+            int nH = 5;
 
             newPart->life = nC;
             newPart->tmp = nH;
@@ -300,12 +301,17 @@ void update_organic_molecule(int i, Simulation *sim)
                     if (!r)
                         continue;
 
-                    // If this molecule collides with a short-chain hydrocarbon and it's hot enough, join them together
-                    if (TYP(r) == PT_GAS && (sim->parts[ID(r)].temp + molecule->temp) / 2 > 273.15f + molecule->life * 100 - sim->pv[y / CELL][x / CELL])
+                    Particle r_part = sim->parts[ID(r)];
+
+                    // If this molecule collides with a small hydrocarbon and it's hot enough, join them together
+                    if (TYP(r) == PT_GAS &&
+                        (r_part.temp + molecule->temp) / 2 > 273.15f + molecule->life * 100 - sim->pv[y / CELL][x / CELL] &&
+                        r_part.life < 5 &&
+                        RNG::Ref().chance(1, 10))
                     {
-                        molecule->life += sim->parts[ID(r)].life;
-                        molecule->tmp += sim->parts[ID(r)].tmp - 2;
-                        sim->part_change_type(ID(r), x + rx, y + ry, PT_H2);
+                        molecule->life += r_part.life;
+                        molecule->tmp += r_part.tmp;
+                        sim->kill_part(ID(r));
                     }
                 }
     }

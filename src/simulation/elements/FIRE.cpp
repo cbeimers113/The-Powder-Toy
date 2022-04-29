@@ -263,42 +263,43 @@ int Element_FIRE_update(UPDATE_FUNC_ARGS)
 					}
 				}
 
-				if ((surround_space || sim->elements[rt].Explosive) &&
-					sim->elements[rt].Flammable && RNG::Ref().chance(int(sim->elements[rt].Flammable + (sim->pv[(y + ry) / CELL][(x + rx) / CELL] * 10.0f)), 1000) &&
-					// exceptions, t is the thing causing the spark and rt is what's burning
-					(t != PT_SPRK || (rt != PT_RBDM && rt != PT_LRBD && rt != PT_INSL)) &&
-					(t != PT_PHOT || rt != PT_INSL) &&
-					(rt != PT_SPNG || parts[ID(r)].life == 0))
+				float enthalpy = restrict_flt(1 - (parts[ID(r)].life / 60), 0.01, 1);  // Longer hydrocarbons are less flammable
+				bool hydrocarbon_combust = rt == PT_GAS && RNG::Ref().chance(1, (int)(enthalpy * 100));
+
+				if (((surround_space || sim->elements[rt].Explosive) &&
+						sim->elements[rt].Flammable && RNG::Ref().chance(int(sim->elements[rt].Flammable + (sim->pv[(y + ry) / CELL][(x + rx) / CELL] * 10.0f)), 1000) &&
+						// exceptions, t is the thing causing the spark and rt is what's burning
+						(t != PT_SPRK || (rt != PT_RBDM && rt != PT_LRBD && rt != PT_INSL)) &&
+						(t != PT_PHOT || rt != PT_INSL) &&
+						(rt != PT_SPNG || parts[ID(r)].life == 0)) ||
+					hydrocarbon_combust)
 				{
 					int combust_type = PT_FIRE;
+					float combust_temp = sim->elements[rt].Flammable / 2;
 
 					if (parts[ID(r)].type == PT_WOOD)
 					{
 						int rand_combust = RNG::Ref().between(0, 50);
-						
+
 						if (rand_combust == 0)
 							combust_type = PT_CRBN;
 						else if (rand_combust == 1)
 							combust_type = PT_EMBR;
 					}
 
+					if (hydrocarbon_combust)
+					{
+						sim->pv[y / CELL][x / CELL] += enthalpy * 0.25f * CFDS;
+						combust_temp = enthalpy * 400;
+					}
+
 					sim->part_change_type(ID(r), x + rx, y + ry, combust_type);
-					parts[ID(r)].temp = restrict_flt(sim->elements[PT_FIRE].DefaultProperties.temp + (sim->elements[rt].Flammable / 2), MIN_TEMP, MAX_TEMP);
+					parts[ID(r)].temp = restrict_flt(sim->elements[PT_FIRE].DefaultProperties.temp + combust_temp, MIN_TEMP, MAX_TEMP);
 					parts[ID(r)].life = RNG::Ref().between(180, 259);
 					parts[ID(r)].tmp = parts[ID(r)].ctype = 0;
 
 					if (sim->elements[rt].Explosive)
 						sim->pv[y / CELL][x / CELL] += 0.25f * CFDS;
-				}
-
-				// Special hydrocarbon combustion
-				if (rt == PT_GAS)
-				{
-					float heat = parts[ID(r)].life / 10;
-					sim->part_change_type(ID(r), x + rx, y + ry, PT_FIRE);
-					parts[ID(r)].temp = heat * sim->elements[PT_FIRE].DefaultProperties.temp + 273.15f;
-					parts[ID(r)].life = RNG::Ref().between(180, 259);
-					sim->pv[y / CELL][x / CELL] += heat;
 				}
 			}
 	if (sim->legacy_enable && t != PT_SPRK) // SPRK has no legacy reactions
