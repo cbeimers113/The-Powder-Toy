@@ -1,13 +1,2 @@
-Version 5.0.0:
- * Cyens Toy is now forked from vanilla TPT, making it easier to keep up to date
- * Fresh new icons for menu sections added by Cyens Toy
- * Local gravity mode
- * Compressible gases simulation
- * Time dilation simulation
- * Singularity now creates gravity as well as negative pressure
- * FullName field for elements that shows up in detailed HUD
- * Renamed some vanilla elements
- * Moved some elements to more appropriate menu sections
- * Added a reworked, simpler hydrocarbons system
- * Added CRBN, forms from burning WOOD and COAL, can be compressed back into BCOL and form methane with H2
- * WOOD also creates some EMBR when burning
+Version 5.0.1:
+ - Bugfixes for hydrocarbon decomposition, combustion and compression.

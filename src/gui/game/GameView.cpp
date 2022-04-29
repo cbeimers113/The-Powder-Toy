@@ -2223,7 +2223,12 @@ void GameView::OnDraw()
 				}
 				
 				if(organic)
-					sampleInfo << ", C" << sample.particle.life;
+				{
+					if(sample.particle.life == 1)
+						sampleInfo << ", C";
+					else
+						sampleInfo << ", C" << sample.particle.life;
+				}
 				else
 				{
 					sampleInfo << ", Temp: " << (sample.particle.temp - 273.15f) << " C";

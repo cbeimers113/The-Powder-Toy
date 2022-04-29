@@ -37,6 +37,13 @@ void update_compressible_gases(int i, Simulation *sim)
 
             if (sim->parts[i].tmp4 < 5 && !sim->parts[ID(adj)].tmp4 && pressure > min_compression + sim->parts[i].tmp4 * 25)
             {
+                // Hydrocarbons will become more complex when compressed
+                if(sim->parts[i].type == PT_GAS)
+                {
+                    sim->parts[i].life += sim->parts[ID(adj)].life;
+                    sim->parts[i].tmp += sim->parts[ID(adj)].tmp;
+                }
+
                 int g = sim->parts[ID(adj)].tmp4;
                 sim->parts[i].tmp4 += !g ? 1 : g;
                 sim->pv[y / CELL][x / CELL] -= 5;
@@ -48,8 +55,27 @@ void update_compressible_gases(int i, Simulation *sim)
     // Decompression
     if (sim->parts[i].tmp4 && (decompX + decompY > 0) && pressure <= min_compression + sim->parts[i].tmp4 * 25)
     {
-        sim->create_part(-1, decompX, decompY, sim->parts[i].type);
-        sim->parts[i].tmp4--;
-        sim->pv[y / CELL][x / CELL] += 5;
+        int g = sim->create_part(-1, decompX, decompY, sim->parts[i].type);
+
+        if (g != -1)
+        {
+            sim->parts[i].tmp4--;
+            sim->pv[y / CELL][x / CELL] += 5;
+
+            if(sim->parts[i].type == PT_GAS)
+            {
+                int C = sim->parts[i].life;
+                int H = sim->parts[i].tmp;
+                int gC = C / 2;
+                int gH = H / 2;
+                C -= gC;
+                H -= gH;
+
+                sim->parts[i].life = C;
+                sim->parts[i].tmp = H;
+                sim->parts[ID(g)].life = gC;
+                sim->parts[ID(g)].tmp = gH;
+            }
+        }
     }
 }

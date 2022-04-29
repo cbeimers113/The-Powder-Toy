@@ -1,5 +1,4 @@
 ## Cyens Toy 
-### Version 5.0.0
 
 #### Cyens Toy aims to enhance The Powder Toy by going deeper into science simulation. This mod implements phenomena from several branches of natural science which are feasible to simulate and fun to explore in a 2D particle simulator. 
 ---
@@ -23,13 +22,14 @@
 	- Hydrocarbon name displayed in HUD detailed mode (toggle with D)
 
 For other features, see the [changelog](https://github.com/cbeimers113/cyens-toy/blob/master/changelog.txt).
+To see changelogs from older versions, look at the changelog's [commit history](https://github.com/cbeimers113/cyens-toy/commits/master/changelog.txt).
 
 ---
 **Version Numbering**
 _a.b.c_
-- a - incremented whenever Cyens Toy is updated to the latest vanilla codebase
-- b - incremented whenever there is a major feature added 
-- c - incremented whenever there is a minor feature or bugfix added
+- a - updated to the latest vanilla codebase
+- b - major feature added 
+- c - build number
 ---
 
 ### The Powder Toy - July 2021
