@@ -16,7 +16,7 @@ struct Particle
 	int flags;
 	int tmp;	// Used to store number of hydrogens for hydrocarbons
 	int tmp2;
-	int tmp3;	// Used as decomposition timer
+	int tmp3;
 	int tmp4;	// Used for gas compression
 	unsigned int dcolour;
 

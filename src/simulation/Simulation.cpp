@@ -4190,10 +4190,6 @@ void Simulation::UpdateParticles(int start, int end)
 			if (legacy_enable) // if heat sim is off
 				Element::legacyUpdate(this, i, x, y, surround_space, nt, parts, pmap);
 
-			// Organic molecules
-			if (parts[i].type == PT_GAS || parts[i].type == PT_MWAX || parts[i].type == PT_OIL || parts[i].type == PT_WAX)
-				update_organic_molecule(i, this);
-
 			// Compressible gases
 			if (do_compressible_gases && (elements[t].Properties & TYPE_GAS))
 				update_compressible_gases(i, this);
