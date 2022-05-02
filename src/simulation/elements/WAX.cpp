@@ -1,6 +1,7 @@
 #include "simulation/ElementCommon.h"
 
-static void create(ELEMENT_CREATE_FUNC_ARGS);
+int hydrocarbon_update(UPDATE_FUNC_ARGS);
+void hydrocarbon_create(ELEMENT_CREATE_FUNC_ARGS);
 
 void Element::Element_WAX()
 {
@@ -43,12 +44,6 @@ void Element::Element_WAX()
 	HighTemperature = ITH;
 	HighTemperatureTransition = NT;
 
-	Create = &create;
-}
-
-static void create(ELEMENT_CREATE_FUNC_ARGS)
-{
-	// Initialize WAX as somewhere in the range above isocane
-	sim->parts[i].life = RNG::Ref().between(21, 60);
-	sim->parts[i].tmp = (sim->parts[i].life + RNG::Ref().between(-1, 1)) * 2;
+	Update = &hydrocarbon_update;
+	Create = &hydrocarbon_create;
 }
