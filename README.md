@@ -25,12 +25,6 @@ For other features, see the [changelog](https://github.com/cbeimers113/cyens-toy
 To see changelogs from older versions, look at the changelog's [commit history](https://github.com/cbeimers113/cyens-toy/commits/master/changelog.txt).
 
 ---
-**Version Numbering**
-_a.b.c_
-- a - updated to the latest vanilla codebase
-- b - major feature added 
-- c - build number
----
 
 ### The Powder Toy - July 2021
 

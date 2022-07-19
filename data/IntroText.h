@@ -2,7 +2,7 @@
 #include "Config.h"
 
 const char *const introTextData =
-	"\btCyens Toy \boVersion 5.0.1 \bg- \blhttps://tpt.io/.302980\n"
+	"\btCyens Toy \boVersion 5.1.0 \bg- \blhttps://tpt.io/.302980\n"
 	"\bgBuilt on "
 	"\brThe Powder Toy \boVersion " MTOS(SAVE_VERSION) "." MTOS(MINOR_VERSION) " \bg- \blhttps://powdertoy.co.uk\n"
 	"\bo---------------------------------------------------------------\n"

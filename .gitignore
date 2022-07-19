@@ -1,3 +1,6 @@
+# Cyens Toy
+build-windows/build.bat
+
 # Misc extensions, system files
 *.zip
 *.txt
