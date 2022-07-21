@@ -1,5 +1,8 @@
 #include "simulation/ElementCommon.h"
 
+static void create(ELEMENT_CREATE_FUNC_ARGS);
+static int update(UPDATE_FUNC_ARGS);
+
 void Element::Element_SALT()
 {
 	Identifier = "DEFAULT_PT_SALT";
@@ -17,7 +20,7 @@ void Element::Element_SALT()
 	Collision = -0.1f;
 	Gravity = 0.3f;
 	Diffusion = 0.00f;
-	HotAir = 0.000f	* CFDS;
+	HotAir = 0.000f * CFDS;
 	Falldown = 1;
 
 	Flammable = 0;
@@ -40,4 +43,17 @@ void Element::Element_SALT()
 	LowTemperatureTransition = NT;
 	HighTemperature = 1173.0f;
 	HighTemperatureTransition = PT_LAVA;
+
+	Create = &create;
+	Update = &update;
+}
+
+static int update(UPDATE_FUNC_ARGS)
+{
+	return 0;
+}
+
+static void create(ELEMENT_CREATE_FUNC_ARGS)
+{
+	sim->parts[i].ctype = (PT_RBDM << 16) | PT_CAUS;
 }

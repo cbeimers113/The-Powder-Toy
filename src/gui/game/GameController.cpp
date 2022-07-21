@@ -1510,6 +1510,22 @@ void GameController::ClearSim()
 	gameModel->ClearSimulation();
 }
 
+// (Cyens Toy) Extract ionic salt data from ctype
+String GameController::GetSaltName(int ctype)
+{
+	if (!ctype || !gameModel)
+		return "";
+
+	int cation = ctype >> 16;
+	int anion = ctype - (cation << 16);
+	Simulation *sim = gameModel->GetSimulation();
+
+	if (!cation || !anion || !sim)
+		return "";
+
+	return sim->elements[cation].ionData.symbol + sim->elements[anion].ionData.symbol;
+}
+
 String GameController::ElementResolve(int type, int ctype)
 {
 	// "NONE" should never be displayed in the HUD

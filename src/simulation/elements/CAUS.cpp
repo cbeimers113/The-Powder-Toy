@@ -46,6 +46,8 @@ void Element::Element_CAUS()
 	DefaultProperties.life = 75;
 
 	Update = &update;
+
+	ionData = IonData("Cl", -1, 3.16);
 }
 
 static int update(UPDATE_FUNC_ARGS)

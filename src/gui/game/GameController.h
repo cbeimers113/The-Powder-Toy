@@ -157,6 +157,7 @@ public:
 	bool MouseInZoom(ui::Point position);
 	ui::Point PointTranslate(ui::Point point);
 	ui::Point NormaliseBlockCoord(ui::Point point);
+	String GetSaltName(int ctype);
 	String ElementResolve(int type, int ctype);
 	String ElementResolveFull(int type, int ctype);
 	String BasicParticleInfo(Particle const &sample_part);

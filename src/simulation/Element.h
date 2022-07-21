@@ -3,6 +3,7 @@
 
 #include "graphics/Pixel.h"
 #include "ElementDefs.h"
+#include "Ions.h"
 #include "Particle.h"
 #include "StructProperty.h"
 
@@ -16,6 +17,7 @@ public:
 	ByteString Identifier;
 	String Name;
 	String FullName;
+	String ionSymbol;
 	pixel Colour;
 	int MenuVisible;
 	int MenuSection;
@@ -50,6 +52,8 @@ public:
 	int LowTemperatureTransition;
 	float HighTemperature;
 	int HighTemperatureTransition;
+
+	IonData ionData;
 
 	int (*Update) (UPDATE_FUNC_ARGS);
 	int (*Graphics) (GRAPHICS_FUNC_ARGS);

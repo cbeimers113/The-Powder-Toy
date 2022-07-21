@@ -25,6 +25,7 @@
 #include "simulation/ElementClasses.h"
 #include "simulation/ElementDefs.h"
 #include "simulation/Hydrocarbon.h"
+#include "simulation/Ions.h"
 #include "simulation/SaveRenderer.h"
 #include "simulation/SimulationData.h"
 
@@ -2246,8 +2247,12 @@ void GameView::OnDraw()
 					// Use the organic chemistry naming algorithm for organic molecules
 					if(organic)
 						sampleInfo << ": " << get_hydrocarbon_name(sample.particle.life, sample.particle.tmp);
+					
+					// Ionic salts
+					if (type == PT_SALT)
+						sampleInfo << ": " << c->GetSaltName(ctype);
 
-					if (wavelengthGfx || type == PT_EMBR || type == PT_PRTI || type == PT_PRTO)
+					if (wavelengthGfx || type == PT_EMBR || type == PT_PRTI || type == PT_PRTO || type == PT_SALT)
 					{
 						// Do nothing, ctype is meaningless for these elements
 					}
